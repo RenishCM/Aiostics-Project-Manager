@@ -18,9 +18,9 @@ No install. No account. No server. No subscription. Just open and work.
 
 | | |
 |--|--|
-| ![Home Screen](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS1.png) | ![New Project](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS2.png) |
+| ![Home Screen](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS1.png?v=1772655145) | ![New Project](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS2.png?v=1772655145) |
 | *Home screen — recent projects and quick actions* | *New project — Software or General project type* |
-| ![Templates](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsTemplate_SS1.png) | ![Main App](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsPM_SS1.png) |
+| ![Templates](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsTemplate_SS1.png?v=1772655145) | ![Main App](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsPM_SS1.png?v=1772655145) |
 | *Templates — Web App, Mobile, ML Pipeline, Microservices* | *Main app — tree view, minimap, 496 files, folder health at scale* |
 
 ---
