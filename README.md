@@ -14,6 +14,17 @@ No install. No account. No server. No subscription. Just open and work.
 
 ---
 
+## Screenshots
+
+| | |
+|--|--|
+| ![Home Screen](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS1.png) | ![New Project](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS2.png) |
+| *Home screen — recent projects and quick actions* | *New project — Software or General project type* |
+| ![Templates](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsTemplate_SS1.png) | ![Main App](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsPM_SS1.png) |
+| *Templates — Web App, Mobile, ML Pipeline, Microservices* | *Main app — tree view, minimap, 496 files, folder health at scale* |
+
+---
+
 ## Download
 
 Download the full package — all files must be kept in the same folder:
