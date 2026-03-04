@@ -1,4 +1,4 @@
-# Aiostic Project Manager
+# Aiostics Project Manager
 
 A powerful, fully offline project manager that lives in a single HTML file.  
 No install. No account. No server. No subscription. Just open and work.
@@ -38,7 +38,7 @@ Download the full package — all files must be kept in the same folder:
 **Option B — Desktop shortcut (Windows)**
 1. Download all files into the same folder
 2. Right-click `Create_Desktop_Shortcut.bat` → **Run as administrator**
-3. A shortcut with the Aiostic icon appears on your Desktop
+3. A shortcut with the Aiostics icon appears on your Desktop
 4. Double-click it anytime to launch
 
 No install. No dependencies. No internet required after download.
@@ -47,7 +47,7 @@ No install. No dependencies. No internet required after download.
 
 ## What It Does
 
-Aiostic Project Manager lets you plan, track, and share software or general
+Aiostics Project Manager lets you plan, track, and share software or general
 projects using a visual tree structure — folders, files, sections, and tasks —
 with a built-in Gantt chart, status tracking, notes, and progress history.
 
@@ -167,4 +167,4 @@ For bug reports, feature requests, and commercial licensing enquiries.
 
 ---
 
-*Aiostic Project Manager — own your data, own your workflow.*
+*Aiostics Project Manager — own your data, own your workflow.*
