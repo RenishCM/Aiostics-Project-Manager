@@ -10,7 +10,7 @@ No install. No account. No server. No subscription. Just open and work.
 
 ---
 
-**[▶ Try it live — no download needed](https://renishcm.github.io/Aiostics-Project-Manager/Aiostics_Project_Manager.html)**
+**[▶ Try it live - no download needed](https://renishcm.github.io/Aiostics-Project-Manager/Aiostics_Project_Manager.html)**
 
 ---
 
@@ -19,21 +19,21 @@ No install. No account. No server. No subscription. Just open and work.
 | | |
 |--|--|
 | ![Home Screen](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS1.png?v=1772655145) | ![New Project](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsHome_SS2.png?v=1772655145) |
-| *Home screen — recent projects and quick actions* | *New project — Software or General project type* |
+| *Home screen - recent projects and quick actions* | *New project - Software or General project type* |
 | ![Templates](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsTemplate_SS1.png?v=1772655145) | ![Main App](https://raw.githubusercontent.com/RenishCM/Aiostics-Project-Manager/main/screenshots/AiosticsPM_SS1.png?v=1772655145) |
-| *Templates — Web App, Mobile, ML Pipeline, Microservices* | *Main app — tree view, minimap, 496 files, folder health at scale* |
+| *Templates - Web App, Mobile, ML Pipeline, Microservices* | *Main app - tree view, minimap, 496 files, folder health at scale* |
 
 ---
 
 ## Download
 
-Download the full package — all files must be kept in the same folder:
+Download the full package - all files must be kept in the same folder:
 
 | File | Purpose |
 |------|---------|
-| `Aiostics_Project_Manager.html` | The app — open this in your browser |
+| `Aiostics_Project_Manager.html` | The app - open this in your browser |
 | `aiostics.ico` | App icon |
-| `Create_Desktop_Shortcut.bat` | Windows — creates a Desktop shortcut with the icon |
+| `Create_Desktop_Shortcut.bat` | Windows - creates a Desktop shortcut with the icon |
 | `LICENSE` | License terms |
 | `README.md` | This file |
 
@@ -41,12 +41,12 @@ Download the full package — all files must be kept in the same folder:
 
 ## Getting Started
 
-**Option A — Just open it**
+**Option A - Just open it**
 1. Download all files into the same folder
 2. Double-click `Aiostics_Project_Manager.html`
 3. It opens in your browser and is ready to use
 
-**Option B — Desktop shortcut (Windows)**
+**Option B - Desktop shortcut (Windows)**
 1. Download all files into the same folder
 2. Right-click `Create_Desktop_Shortcut.bat` → **Run as administrator**
 3. A shortcut with the Aiostics icon appears on your Desktop
@@ -59,7 +59,7 @@ No install. No dependencies. No internet required after download.
 ## What It Does
 
 Aiostics Project Manager lets you plan, track, and share software or general
-projects using a visual tree structure — folders, files, sections, and tasks —
+projects using a visual tree structure - folders, files, sections, and tasks -
 with a built-in Gantt chart, status tracking, notes, and progress history.
 
 Everything runs entirely in your browser. Your data never leaves your machine.
@@ -69,35 +69,35 @@ Everything runs entirely in your browser. Your data never leaves your machine.
 ## Features
 
 **Project Management**
-- Multi-project tabs — switch between projects instantly
+- Multi-project tabs - switch between projects instantly
 - Software projects (Folder / File) and General projects (Section / Task)
-- 4 status levels — New · In Progress · Review · Done
-- Folder health pills — instant visual summary of completion state
-- Node notes — annotate any file or folder
+- 4 status levels - New · In Progress · Review · Done
+- Folder health pills - instant visual summary of completion state
+- Node notes - annotate any file or folder
 - Custom tags with colour coding
 - Inline rename and description editing
 
 **Planning**
-- Gantt chart with draggable bars — move and resize date ranges directly
-- Progress sparkline — tracks completion percentage over time
+- Gantt chart with draggable bars - move and resize date ranges directly
+- Progress sparkline - tracks completion percentage over time
 - Dashboard with live stats and status breakdown
 
 **Productivity**
 - 60-step undo / redo (Ctrl+Z / Ctrl+Y)
-- Full keyboard navigation — arrows, A/F/S to add, E to expand
-- Rapid-add mode — Enter adds and immediately resets for the next item
-- Minimap panel — full tree scaled down, click any node to jump there
+- Full keyboard navigation - arrows, A/F/S to add, E to expand
+- Rapid-add mode - Enter adds and immediately resets for the next item
+- Minimap panel - full tree scaled down, click any node to jump there
 - Search and tag filters
 - Bulk status update and bulk delete
 
 **Sharing and Export**
-- Share via URL — entire project compressed into the link, no server needed
+- Share via URL - entire project compressed into the link, no server needed
 - Export as plain text tree (copy or download)
-- Export as PDF — opens print-ready view, save from browser print dialog
+- Export as PDF - opens print-ready view, save from browser print dialog
 - Save / Load as JSON file
 
 **Customisation**
-- 4 font options — Inter, Mono, Book Antiqua, Josefin Sans
+- 4 font options - Inter, Mono, Book Antiqua, Josefin Sans
 - Font choice persists across sessions
 
 ---
@@ -111,7 +111,7 @@ backup across devices:
 2. Save the `.json` file into your **Google Drive** or **OneDrive** sync folder
 3. Your cloud client handles the rest automatically
 
-Your data stays entirely on your machine — nothing is sent anywhere.
+Your data stays entirely on your machine - nothing is sent anywhere.
 
 ---
 
@@ -139,8 +139,8 @@ Press **⌨️ Shortcuts** in the tab bar for the full reference at any time.
 
 Click **🔗 Share** in the dashboard to generate a shareable URL.
 
-- The entire project is compressed into the URL — no server involved
-- Recipient opens it in any browser — full read-only view
+- The entire project is compressed into the URL - no server involved
+- Recipient opens it in any browser - full read-only view
 - One click to **Open for editing** imports it into their own manager
 - Works offline if both parties have the file downloaded
 
@@ -178,4 +178,4 @@ For bug reports, feature requests, and commercial licensing enquiries.
 
 ---
 
-*Aiostics Project Manager — own your data, own your workflow.*
+*Aiostics Project Manager - own your data, own your workflow.*

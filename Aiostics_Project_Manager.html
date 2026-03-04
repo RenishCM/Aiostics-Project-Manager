@@ -608,7 +608,7 @@ function AddForm({onAdd,onCancel,PT=PROJ_TYPES.software,initialKind='file'}){
         </label>
       </div>
       {rapid&&<div style={{fontSize:10,color:'#e3b341',background:'rgba(227,179,65,.07)',border:'1px solid rgba(227,179,65,.2)',borderRadius:5,padding:'4px 10px',marginBottom:8,letterSpacing:'.03em'}}>
-        ⚡ Rapid mode — Enter adds &amp; resets. Esc to close.
+        ⚡ Rapid mode - Enter adds &amp; resets. Esc to close.
       </div>}
       <div style={{display:'flex',gap:8,marginBottom:8}}>
         <div style={{flex:1}}>
@@ -765,7 +765,7 @@ function TreeNode({node,depth,isRoot,expanded,onToggle,onDelete,onCycleStatus,on
             </div>
           )}
           {!node.children?.length&&addingTo!==node.id&&(
-            <div style={{paddingLeft:pad+40,paddingBottom:6,fontSize:11,color:'#8b949e',fontStyle:'italic'}}>empty — hover &amp; click + to add</div>
+            <div style={{paddingLeft:pad+40,paddingBottom:6,fontSize:11,color:'#8b949e',fontStyle:'italic'}}>empty - hover &amp; click + to add</div>
           )}
         </div>
       )}
@@ -894,7 +894,7 @@ function GanttChart({tree,onPatchNode}){
                     {isDragging&&gStart&&<span style={{fontSize:8,color:col,opacity:.7,marginLeft:6,pointerEvents:'none',whiteSpace:'nowrap'}}>{shortD(gStart)} → {shortD(gEnd)}</span>}
                   </div>
                 )}
-                {sx===null&&<div style={{position:'absolute',left:20,top:'50%',transform:'translateY(-50%)',fontSize:8,color:'#1c2128',fontStyle:'italic'}}>—</div>}
+                {sx===null&&<div style={{position:'absolute',left:20,top:'50%',transform:'translateY(-50%)',fontSize:8,color:'#1c2128',fontStyle:'italic'}}>-</div>}
               </div>
             );
           })}
@@ -916,7 +916,7 @@ const TOUR_STEPS=[
   {title:'Track status',body:'Click the coloured status badge on any file to cycle through New → In Progress → Review → Done. Folder status auto-computes from its children.',target:'status-badge',pos:'left'},
   {title:'Tags & search 🏷',body:'Click 🏷 to label files with frontend, backend, api and more. Use the search box to instantly filter the tree by name, tag or description.',target:'search-box',pos:'left'},
   {title:'Gantt view & drag',body:'Switch to Gantt to see your timeline. Set start/end dates on files, then drag bars left/right to reschedule. Drag the edges to resize duration.',target:'gantt-btn',pos:'bottom'},
-  {title:'Undo / Redo ↩️',body:'Made a mistake? Ctrl+Z to undo, Ctrl+Y to redo — up to 60 steps. Use Ctrl+S to save to a file at any time.',target:'undo-btn',pos:'bottom'},
+  {title:'Undo / Redo ↩️',body:'Made a mistake? Ctrl+Z to undo, Ctrl+Y to redo - up to 60 steps. Use Ctrl+S to save to a file at any time.',target:'undo-btn',pos:'bottom'},
 ];
 
 function TourOverlay({step,onNext,onSkip}){
@@ -1001,7 +1001,7 @@ function ExportModal({tree,projectName,onClose}){
     if(!w){alert('Please allow popups for PDF export.');return;}
     const html=[
       '<!DOCTYPE html><html><head><meta charset="UTF-8"/>',
-      '<title>'+projectName+' — Project Structure</title>',
+      '<title>'+projectName+' - Project Structure</title>',
       '<style>',
       '*{box-sizing:border-box;margin:0;padding:0}',
       'body{font-family:"Segoe UI",system-ui,sans-serif;background:#fff;color:#1a1a2e;padding:32px;font-size:12px;line-height:1.7}',
@@ -1065,7 +1065,7 @@ function ExportModal({tree,projectName,onClose}){
           <div style={{fontSize:10,color:'#8b949e',flex:1}}>{text.split('\n').length} lines</div>
           <button onClick={copy} style={{padding:'6px 18px',borderRadius:999,border:`1px solid ${copied?'#4ade8055':'#388bfd55'}`,background:copied?'rgba(74,222,128,.12)':'rgba(56,139,253,.12)',color:copied?'#4ade80':'#79c0ff',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',transition:'all .2s'}}>{copied?'✓ Copied!':'⧉ Copy'}</button>
           <button onClick={download} style={{padding:'6px 18px',borderRadius:999,border:'1px solid #a78bfa44',background:'rgba(167,139,250,.12)',color:'#c084fc',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>⬇ Download</button>
-          <button onClick={exportPdf} style={{padding:'6px 18px',borderRadius:999,border:'1px solid #f97316aa',background:'rgba(249,115,22,.12)',color:'#fb923c',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}} title="Opens print dialog — choose 'Save as PDF'">📄 PDF</button>
+          <button onClick={exportPdf} style={{padding:'6px 18px',borderRadius:999,border:'1px solid #f97316aa',background:'rgba(249,115,22,.12)',color:'#fb923c',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}} title="Opens print dialog - choose 'Save as PDF'">📄 PDF</button>
         </div>
       </div>
     </div>
@@ -1110,7 +1110,7 @@ function ProjectTabs({projects,activeId,onSwitch,onClose,onNewProject,onLoadProj
       </div>
       {/* Divider */}
       <div style={{width:1,background:'#21262d',flexShrink:0,margin:'6px 0'}}/>
-      {/* App-level settings — always visible, never scroll */}
+      {/* App-level settings - always visible, never scroll */}
       <div style={{display:'flex',alignItems:'center',gap:4,padding:'0 10px',flexShrink:0}}>
         <button onClick={onShowShortcuts} title="Keyboard shortcuts (?)"
           style={{fontSize:9,fontWeight:700,color:'#8b949e',background:'transparent',border:'1px solid #21262d',borderRadius:999,padding:'3px 10px',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s',display:'flex',alignItems:'center',gap:4}}
@@ -1200,12 +1200,12 @@ function Dashboard({st,name,isDirty,fileName,PT,view,setView,onSave,onSaveAs,onE
         <div className="dash-actions" style={{display:'flex',gap:4,flexShrink:0,alignItems:'center'}}>
           {/* Undo/Redo */}
           <div style={{display:'flex',borderRadius:999,overflow:'hidden',border:'1px solid #30363d'}}>
-            <button id="undo-btn" onClick={onUndo} disabled={!canUndo} title={`Undo (Ctrl+Z) — ${undoCount} steps`}
+            <button id="undo-btn" onClick={onUndo} disabled={!canUndo} title={`Undo (Ctrl+Z) - ${undoCount} steps`}
               style={{padding:'5px 10px',fontSize:10,fontWeight:700,background:'transparent',color:canUndo?'#e3b341':'#30363d',border:'none',cursor:canUndo?'pointer':'not-allowed',fontFamily:'inherit',transition:'all .15s'}}>
               ↩ {undoCount>0?undoCount:''}
             </button>
             <div style={{width:1,background:'#30363d'}}/>
-            <button onClick={onRedo} disabled={!canRedo} title={`Redo (Ctrl+Y) — ${redoCount} steps`}
+            <button onClick={onRedo} disabled={!canRedo} title={`Redo (Ctrl+Y) - ${redoCount} steps`}
               style={{padding:'5px 10px',fontSize:10,fontWeight:700,background:'transparent',color:canRedo?'#79c0ff':'#30363d',border:'none',cursor:canRedo?'pointer':'not-allowed',fontFamily:'inherit',transition:'all .15s'}}>
               ↪ {redoCount>0?redoCount:''}
             </button>
@@ -1480,7 +1480,7 @@ function ShareModal({tree,projectName,onClose}){
           <div style={{fontSize:20}}></div>
           <div style={{flex:1}}>
             <div style={{fontSize:14,fontWeight:700,color:'#f0f6fc'}}>Share Project</div>
-            <div style={{fontSize:10,color:'#adbac7',marginTop:2}}>Anyone with the link can view — no account, no server, works offline</div>
+            <div style={{fontSize:10,color:'#adbac7',marginTop:2}}>Anyone with the link can view - no account, no server, works offline</div>
           </div>
           <button onClick={onClose} style={{width:26,height:26,borderRadius:999,border:'1px solid #30363d',background:'transparent',color:'#7d8590',fontSize:14,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
         </div>
@@ -1511,7 +1511,7 @@ function ShareModal({tree,projectName,onClose}){
               {copied?'✓ Copied to clipboard!':'⧉ Copy Link'}
             </button>
             <div style={{fontSize:9,color:'#adbac7',textAlign:'center',marginTop:8,lineHeight:1.8}}>
-              The entire project is encoded in the URL — no data is sent anywhere.<br/>Recipient opens it in any browser, no install needed.
+              The entire project is encoded in the URL - no data is sent anywhere.<br/>Recipient opens it in any browser, no install needed.
             </div>
           </>)}
         </div>
@@ -1577,7 +1577,7 @@ function SharedView({data,onEdit}){
       <div style={{background:'linear-gradient(90deg,rgba(56,139,253,.15),rgba(167,139,250,.15))',borderBottom:'1px solid #388bfd33',padding:'8px 16px',display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
         <span style={{fontSize:14}}></span>
         <span style={{fontSize:11,color:'#79c0ff',fontWeight:700}}>Shared view</span>
-        <span style={{fontSize:10,color:'#8b949e'}}>— read only{sharedAt?` · shared ${sharedAt}`:''}</span>
+        <span style={{fontSize:10,color:'#8b949e'}}>- read only{sharedAt?` · shared ${sharedAt}`:''}</span>
         <div style={{flex:1}}/>
         <button onClick={onEdit}
           style={{padding:'5px 16px',borderRadius:999,border:'1px solid #4ade8055',background:'rgba(74,222,128,.12)',color:'#4ade80',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s'}}>
@@ -1747,7 +1747,7 @@ function ShortcutsModal({onClose}){
       ['A','Open add form in focused folder'],
       ['F','Add file to focused folder'],
       ['S','Add section/folder to focused folder'],
-      ['⚡ Rapid mode','Toggle in add form — Enter adds & resets instantly'],
+      ['⚡ Rapid mode','Toggle in add form - Enter adds & resets instantly'],
     ]},
     {label:'Editing',items:[
       ['Click name','Inline rename'],
@@ -2055,7 +2055,7 @@ function App(){
         setFocusedId(null);setSelected(new Set());
       }
       if(e.key==='?'){setShowShortcuts(s=>!s);return;}
-      // Add shortcuts — work on focused node
+      // Add shortcuts - work on focused node
       if(focusedId){
         const node=findNode(tree,focusedId);
         if(!node)return;
