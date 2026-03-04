@@ -105,8 +105,8 @@ const {useState,useMemo,useRef,useEffect,useCallback,useReducer} = React;
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
 const STATUS_ORDER=['new','in-progress','review','completed'];
 const PROJ_TYPES={
-  software:{label:'Software Project',emoji:'💻',nodeLabel:['Folder','File'],addLabel:['folder','file'],hasExt:true,rootDesc:'Software project'},
-  general: {label:'General Project', emoji:'📋',nodeLabel:['Section','Task'],addLabel:['section','task'],hasExt:false,rootDesc:'General project'},
+  software:{label:'Software Project',emoji:'',nodeLabel:['Folder','File'],addLabel:['folder','file'],hasExt:true,rootDesc:'Software project'},
+  general: {label:'General Project', emoji:'',nodeLabel:['Section','Task'],addLabel:['section','task'],hasExt:false,rootDesc:'General project'},
 };
 const S={
   'new':        {label:'New',    color:'#8b949e',bg:'rgba(139,148,158,.13)',border:'rgba(139,148,158,.3)'},
@@ -142,7 +142,7 @@ function makeTemplate(t){
   return clone(t.tree);
 }
 const TEMPLATES=[
-  {name:'Web Application',emoji:'🌐',desc:'React frontend, Node backend, SQL database',
+  {name:'Web Application',emoji:'',desc:'React frontend, Node backend, SQL database',
    tree:{id:'T',type:'folder',name:'my-web-app',desc:'Full-stack web app',tags:[],children:[
     {id:'T1',type:'folder',name:'frontend',tags:[],children:[
       {id:'T1a',type:'folder',name:'src',tags:[],children:[
@@ -180,7 +180,7 @@ const TEMPLATES=[
     {id:'f22',type:'file',name:'docker-compose',fileType:'yml',status:'new',tags:['devops'],desc:'Local containers'},
     {id:'f24',type:'file',name:'README',fileType:'md',status:'new',tags:['docs'],desc:'Project docs'},
    ]}},
-  {name:'Mobile App',emoji:'📱',desc:'React Native with navigation, auth & API',
+  {name:'Mobile App',emoji:'',desc:'React Native with navigation, auth & API',
    tree:{id:'T',type:'folder',name:'my-mobile-app',desc:'React Native app',tags:[],children:[
     {id:'M1',type:'folder',name:'src',tags:[],children:[
       {id:'M1a',type:'folder',name:'screens',tags:[],children:[
@@ -203,7 +203,7 @@ const TEMPLATES=[
     {id:'mf15',type:'file',name:'app',fileType:'json',status:'new',tags:['config'],desc:'Expo config'},
     {id:'mf16',type:'file',name:'README',fileType:'md',status:'new',tags:['docs'],desc:'Setup guide'},
    ]}},
-  {name:'ML Pipeline',emoji:'🤖',desc:'Data ingestion, training, evaluation & serving',
+  {name:'ML Pipeline',emoji:'',desc:'Data ingestion, training, evaluation & serving',
    tree:{id:'T',type:'folder',name:'ml-project',desc:'ML pipeline',tags:[],children:[
     {id:'ML1',type:'folder',name:'data',tags:[],children:[
       {id:'mlf1',type:'file',name:'download',fileType:'py',status:'new',tags:['ml'],desc:'Data download'},
@@ -228,7 +228,7 @@ const TEMPLATES=[
     ]},
     {id:'mlf17',type:'file',name:'requirements',fileType:'txt',status:'new',tags:['config'],desc:'Python deps'},
    ]}},
-  {name:'Microservices',emoji:'⚙️',desc:'API gateway, services & infra as code',
+  {name:'Microservices',emoji:'️',desc:'API gateway, services & infra as code',
    tree:{id:'T',type:'folder',name:'microservices',desc:'Microservices platform',tags:[],children:[
     {id:'MS1',type:'folder',name:'gateway',tags:[],children:[
       {id:'msf1',type:'file',name:'server',fileType:'ts',status:'new',tags:['backend','api'],desc:'Gateway entry'},
@@ -356,7 +356,7 @@ function findParent(root,childId){
 function buildTreeExport(node,prefix='',isLast=true,isRoot=false){
   const isFolder=node.type==='folder';
   const status=isFolder?computeStatus(node):(node.status||'new');
-  const statusEmoji={'new':'🔵','in-progress':'🟡','review':'🟣','completed':'🟢'}[status]||'⚪';
+  const statusEmoji={'new':'N','in-progress':'IP','review':'R','completed':'D'}[status]||'?';
   const name=isFolder?(isRoot?node.name:node.name+'/'):`${node.name}${node.fileType?'.'+node.fileType:''}`;
   const icon=isFolder?'📁':'📄';
   const desc=node.desc?`  # ${statusEmoji} ${S[status]?.label} - ${node.desc}`:`  # ${statusEmoji} ${S[status]?.label}`;
@@ -551,7 +551,7 @@ function NotesPanel({value,onChange,onClose}){
   return(
     <div onClick={e=>e.stopPropagation()}
       style={{margin:'2px 0 6px 38px',borderRadius:6,background:'#0d1117',border:'1px solid #388bfd33',padding:'8px 10px',position:'relative'}}>
-      <div style={{fontSize:9,color:'#adbac7',letterSpacing:'.06em',textTransform:'uppercase',marginBottom:5}}>📝 Notes</div>
+      <div style={{fontSize:9,color:'#adbac7',letterSpacing:'.06em',textTransform:'uppercase',marginBottom:5}}>Notes</div>
       <textarea ref={ref} value={v} onChange={e=>setV(e.target.value)}
         onBlur={commit}
         placeholder="Add notes, links, decisions, context…"
@@ -593,7 +593,7 @@ function AddForm({onAdd,onCancel,PT=PROJ_TYPES.software,initialKind='file'}){
         {['folder','file'].map((k,ki)=>(
           <button key={k} onClick={()=>setKind(k)}
             style={{padding:'4px 16px',borderRadius:999,border:`1px solid ${kind===k?'#388bfd':'#30363d'}`,background:kind===k?'rgba(56,139,253,.15)':'transparent',color:kind===k?'#79c0ff':'#adbac7',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase'}}>
-            {k==='folder'?(PT.hasExt?'📁 ':'📂 ')+PT.nodeLabel[0]:(PT.hasExt?'📄 ':'✅ ')+PT.nodeLabel[1]}
+            {k==='folder'?(PT.hasExt?'📁 ':'📂 ')+PT.nodeLabel[0]:(PT.hasExt?'📄 ':'' )+PT.nodeLabel[1]}
           </button>
         ))}
         <div style={{flex:1}}/>
@@ -911,11 +911,11 @@ function GanttChart({tree,onPatchNode}){
 
 // ─── ONBOARDING TOUR ─────────────────────────────────────────────────────────
 const TOUR_STEPS=[
-  {title:'Welcome to Aiostics PM! 👋',body:'Let\'s take a 30-second tour so you get the most out of it.',target:null,pos:'center'},
-  {title:'Add files & folders ➕',body:'Hover any folder row and click the + button to add a file or folder inside it. Type a full filename like docker-compose.yml and the extension is auto-detected.',target:'add-btn',pos:'bottom'},
-  {title:'Track status 🟡',body:'Click the coloured status badge on any file to cycle through New → In Progress → Review → Done. Folder status auto-computes from its children.',target:'status-badge',pos:'left'},
+  {title:'Welcome to Aiostics PM! ',body:'Let\'s take a 30-second tour so you get the most out of it.',target:null,pos:'center'},
+  {title:'Add files & folders +',body:'Hover any folder row and click the + button to add a file or folder inside it. Type a full filename like docker-compose.yml and the extension is auto-detected.',target:'add-btn',pos:'bottom'},
+  {title:'Track status',body:'Click the coloured status badge on any file to cycle through New → In Progress → Review → Done. Folder status auto-computes from its children.',target:'status-badge',pos:'left'},
   {title:'Tags & search 🏷',body:'Click 🏷 to label files with frontend, backend, api and more. Use the search box to instantly filter the tree by name, tag or description.',target:'search-box',pos:'left'},
-  {title:'Gantt view & drag 📊',body:'Switch to Gantt to see your timeline. Set start/end dates on files, then drag bars left/right to reschedule. Drag the edges to resize duration.',target:'gantt-btn',pos:'bottom'},
+  {title:'Gantt view & drag',body:'Switch to Gantt to see your timeline. Set start/end dates on files, then drag bars left/right to reschedule. Drag the edges to resize duration.',target:'gantt-btn',pos:'bottom'},
   {title:'Undo / Redo ↩️',body:'Made a mistake? Ctrl+Z to undo, Ctrl+Y to redo — up to 60 steps. Use Ctrl+S to save to a file at any time.',target:'undo-btn',pos:'bottom'},
 ];
 
@@ -957,7 +957,7 @@ function TourOverlay({step,onNext,onSkip}){
 function ExportModal({tree,projectName,onClose}){
   const st=useMemo(()=>gatherStats(tree),[tree]);
   const text=useMemo(()=>{
-    const h=[`# ${projectName}`,`# Exported: ${new Date().toLocaleString()}`,`# Files: ${st.files}  |  Folders: ${st.folders}  |  Done: ${st.completed}/${st.files}`,`#`,`# 🔵 New  🟡 In Progress  🟣 Review  🟢 Done`,``];
+    const h=[`# ${projectName}`,`# Exported: ${new Date().toLocaleString()}`,`# Files: ${st.files}  |  Folders: ${st.folders}  |  Done: ${st.completed}/${st.files}`,`#`,`# New  In Progress  Review  Done`,``];
     return[...h,...buildTreeExport(tree,'',true,true)].join('\n');
   },[tree,projectName,st]);
   const [copied,setCopied]=useState(false);const taRef=useRef();
@@ -1053,7 +1053,7 @@ function ExportModal({tree,projectName,onClose}){
     <div onClick={e=>{if(e.target===e.currentTarget)onClose();}} style={{position:'fixed',inset:0,background:'rgba(0,0,0,.8)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:200,padding:20}}>
       <div style={{background:'#0d1117',border:'1px solid #30363d',borderRadius:10,width:'min(780px,96vw)',maxHeight:'85vh',display:'flex',flexDirection:'column',boxShadow:'0 32px 80px rgba(0,0,0,.9)'}}>
         <div style={{display:'flex',alignItems:'center',gap:10,padding:'13px 16px',borderBottom:'1px solid #21262d',flexShrink:0}}>
-          <div style={{fontSize:14,fontWeight:700,color:'#f0f6fc'}}>📋 Export Project Tree</div>
+          <div style={{fontSize:14,fontWeight:700,color:'#f0f6fc'}}> Export Project Tree</div>
           <div style={{flex:1,fontSize:10,color:'#adbac7',paddingLeft:8}}>Visual directory tree · paste into README, docs, or AI chat</div>
           <button onClick={onClose} style={{width:26,height:26,borderRadius:4,border:'1px solid #30363d',background:'transparent',color:'#7d8590',fontSize:14,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
         </div>
@@ -1116,7 +1116,7 @@ function ProjectTabs({projects,activeId,onSwitch,onClose,onNewProject,onLoadProj
           style={{fontSize:9,fontWeight:700,color:'#8b949e',background:'transparent',border:'1px solid #21262d',borderRadius:999,padding:'3px 10px',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s',display:'flex',alignItems:'center',gap:4}}
           onMouseEnter={e=>{e.currentTarget.style.borderColor='#a78bfa';e.currentTarget.style.color='#a78bfa';}}
           onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.color='#8b949e';}}>
-          ⌨️ Shortcuts
+          Shortcuts
         </button>
         <button onClick={onStartTour} title="Take the tour"
           style={{fontSize:9,fontWeight:700,color:'#8b949e',background:'transparent',border:'1px solid #21262d',borderRadius:999,padding:'3px 10px',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s'}}
@@ -1212,7 +1212,7 @@ function Dashboard({st,name,isDirty,fileName,PT,view,setView,onSave,onSaveAs,onE
           </div>
           {/* View toggle */}
           <div style={{display:'flex',borderRadius:999,overflow:'hidden',border:'1px solid #30363d'}}>
-            {[['tree','🌲 Tree'],['gantt','📊 Gantt']].map(([v,l])=>(
+            {[['tree','Tree'],['gantt','Gantt']].map(([v,l])=>(
               <button key={v} id={v==='gantt'?'gantt-btn':undefined} onClick={()=>setView(v)}
                 style={{padding:'5px 11px',fontSize:10,fontWeight:700,background:view===v?'#1f6feb':'transparent',color:view===v?'#fff':'#6e7681',border:'none',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.04em',textTransform:'uppercase',transition:'all .15s'}}>{l}</button>
             ))}
@@ -1220,10 +1220,10 @@ function Dashboard({st,name,isDirty,fileName,PT,view,setView,onSave,onSaveAs,onE
           {treeView&&<>
             <button onClick={onExpandAll} style={tBtn('#388bfd',9)} title="Expand all (E)">⊞</button>
             <button onClick={onCollapseAll} style={tBtn('#8b949e',9)} title="Collapse all">⊟</button>
-            <button onClick={onToggleMinimap} style={{...tBtn(showMinimap?'#e3b341':'#8b949e',9),boxShadow:showMinimap?'0 0 8px rgba(227,179,65,.2)':'none'}} title="Toggle minimap (M)">🗺</button>
+            <button onClick={onToggleMinimap} style={{...tBtn(showMinimap?'#e3b341':'#8b949e',9),boxShadow:showMinimap?'0 0 8px rgba(227,179,65,.2)':'none'}} title="Toggle minimap (M)">Map</button>
           </>}
-          <button onClick={onExportTree} style={tBtn('#e3b341')}>📤 Export</button>
-          <button onClick={onShare} style={{...tBtn('#a78bfa'),boxShadow:'0 0 10px rgba(167,139,250,.15)'}} title="Share via link">🔗 Share</button>
+          <button onClick={onExportTree} style={tBtn('#e3b341')}>Export</button>
+          <button onClick={onShare} style={{...tBtn('#a78bfa'),boxShadow:'0 0 10px rgba(167,139,250,.15)'}} title="Share via link">Share</button>
           <button onClick={onSave} style={{...tBtn(isDirty?'#4ade80':'#484f58'),boxShadow:isDirty?'0 0 10px rgba(74,222,128,.25)':'none'}} title="Save (Ctrl+S)">{isDirty?'● Save':'✓ Saved'}</button>
           <button onClick={onSaveAs} style={tBtn('#79c0ff')} title="Tip: Save into your Google Drive or OneDrive folder for automatic cloud backup">Save As</button>
 
@@ -1340,9 +1340,9 @@ function Welcome({onNew,onLoad,onResume,lastProjects,onTemplate}){
         {mode==='home'&&(
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:10,width:'100%'}}>
             {[
-              {emoji:'✨',label:'New Project',color:'#4ade80',action:()=>setMode('newform')},
+              {emoji:'',label:'New Project',color:'#4ade80',action:()=>setMode('newform')},
               {emoji:'📂',label:'Open File',color:'#c084fc',action:onLoad},
-              {emoji:'🗂️',label:'From Template',color:'#e3b341',action:()=>setMode('templates')},
+              {emoji:'',label:'From Template',color:'#e3b341',action:()=>setMode('templates')},
             ].map(({emoji,label,color,action})=>(
               <div key={label} style={{background:'#0d1117',border:'1px solid #21262d',borderRadius:10,padding:'18px 12px',cursor:'pointer',transition:'all .2s',textAlign:'center'}}
                 onClick={action}
@@ -1356,7 +1356,7 @@ function Welcome({onNew,onLoad,onResume,lastProjects,onTemplate}){
         )}
         {mode==='newform'&&(
           <div className="fadein" style={{width:'100%',background:'#0d1117',border:'1px solid #4ade8044',borderRadius:10,padding:'20px'}}>
-            <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc',marginBottom:14}}>✨ New Project</div>
+            <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc',marginBottom:14}}> New Project</div>
             <div style={{marginBottom:10}}>
               <div style={lS}>Project Name *</div>
               <input ref={nameRef} value={name} onChange={e=>setName(e.target.value)}
@@ -1393,7 +1393,7 @@ function Welcome({onNew,onLoad,onResume,lastProjects,onTemplate}){
           <div className="fadein" style={{width:'100%'}}>
             <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:12}}>
               <button onClick={()=>setMode('home')} style={{...fbtn('#484f58'),padding:'3px 12px',fontSize:9,borderRadius:999}}>← Back</button>
-              <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc'}}>🗂️ Start from a Template</div>
+              <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc'}}>Start from a Template</div>
             </div>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
               {TEMPLATES.map(t=>(
@@ -1477,7 +1477,7 @@ function ShareModal({tree,projectName,onClose}){
       <div className="fadein" style={{background:'#0d1117',border:'1px solid #388bfd44',borderRadius:12,width:'min(580px,96vw)',boxShadow:'0 32px 80px rgba(0,0,0,.9)',overflow:'hidden'}}>
         {/* Header */}
         <div style={{padding:'16px 20px',borderBottom:'1px solid #21262d',display:'flex',alignItems:'center',gap:10}}>
-          <div style={{fontSize:20}}>🔗</div>
+          <div style={{fontSize:20}}></div>
           <div style={{flex:1}}>
             <div style={{fontSize:14,fontWeight:700,color:'#f0f6fc'}}>Share Project</div>
             <div style={{fontSize:10,color:'#adbac7',marginTop:2}}>Anyone with the link can view — no account, no server, works offline</div>
@@ -1492,9 +1492,9 @@ function ShareModal({tree,projectName,onClose}){
             {/* Info pills */}
             <div style={{display:'flex',gap:6,marginBottom:14,flexWrap:'wrap'}}>
               {[
-                ['🔒 Read-only','#4ade80'],
-                ['📦 Self-contained','#38bdf8'],
-                ['🌐 No server needed','#a78bfa'],
+                ['Read-only','#4ade80'],
+                ['Self-contained','#38bdf8'],
+                [' No server needed','#a78bfa'],
                 [`${sizeKB} KB`,'#e3b341'],
               ].map(([l,c])=>(
                 <span key={l} style={{padding:'2px 10px',borderRadius:999,fontSize:9,fontWeight:700,color:c,background:`${c}18`,border:`1px solid ${c}33`}}>{l}</span>
@@ -1575,13 +1575,13 @@ function SharedView({data,onEdit}){
     <div style={{display:'flex',flexDirection:'column',height:'100vh',background:'#010409',color:'#cdd5e0',overflow:'hidden'}}>
       {/* Shared banner */}
       <div style={{background:'linear-gradient(90deg,rgba(56,139,253,.15),rgba(167,139,250,.15))',borderBottom:'1px solid #388bfd33',padding:'8px 16px',display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
-        <span style={{fontSize:14}}>🔗</span>
+        <span style={{fontSize:14}}></span>
         <span style={{fontSize:11,color:'#79c0ff',fontWeight:700}}>Shared view</span>
         <span style={{fontSize:10,color:'#8b949e'}}>— read only{sharedAt?` · shared ${sharedAt}`:''}</span>
         <div style={{flex:1}}/>
         <button onClick={onEdit}
           style={{padding:'5px 16px',borderRadius:999,border:'1px solid #4ade8055',background:'rgba(74,222,128,.12)',color:'#4ade80',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s'}}>
-          ✎ Open for editing
+          Open for editing
         </button>
       </div>
       {/* Mini dashboard */}
@@ -1597,7 +1597,7 @@ function SharedView({data,onEdit}){
           </div>
           {/* view toggle */}
           <div style={{display:'flex',borderRadius:999,overflow:'hidden',border:'1px solid #30363d'}}>
-            {[['tree','🌲 Tree'],['gantt','📊 Gantt']].map(([v,l])=>(
+            {[['tree','Tree'],['gantt','Gantt']].map(([v,l])=>(
               <button key={v} onClick={()=>setView(v)} style={{padding:'5px 11px',fontSize:10,fontWeight:700,background:view===v?'#1f6feb':'transparent',color:view===v?'#fff':'#6e7681',border:'none',cursor:'pointer',fontFamily:'inherit',textTransform:'uppercase',transition:'all .15s'}}>{l}</button>
             ))}
           </div>
@@ -1641,7 +1641,7 @@ function SharedView({data,onEdit}){
         )}
       </div>
       <div style={{padding:'5px 16px',borderTop:'1px solid #21262d',fontSize:10,color:'#adbac7',display:'flex',gap:14,flexShrink:0,alignItems:'center'}}>
-        <span>🔒 Read-only shared view</span>
+        <span>Read-only shared view</span>
         <span style={{marginLeft:'auto'}}>Click "Open for editing" to work with this project</span>
       </div>
     </div>
@@ -1767,7 +1767,7 @@ function ShortcutsModal({onClose}){
       style={{position:'fixed',inset:0,background:'rgba(0,0,0,.85)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:300,padding:20}}>
       <div className="fadein" style={{background:'#0d1117',border:'1px solid #388bfd33',borderRadius:12,width:'min(560px,96vw)',maxHeight:'85vh',overflow:'auto',boxShadow:'0 32px 80px rgba(0,0,0,.9)'}}>
         <div style={{display:'flex',alignItems:'center',padding:'16px 20px',borderBottom:'1px solid #21262d',position:'sticky',top:0,background:'#0d1117',zIndex:1}}>
-          <div style={{fontSize:15,fontWeight:800,color:'#f0f6fc'}}>⌨️ Keyboard Shortcuts</div>
+          <div style={{fontSize:15,fontWeight:800,color:'#f0f6fc'}}>Shortcuts Keyboard Shortcuts</div>
           <button onClick={onClose} style={{marginLeft:'auto',width:26,height:26,borderRadius:999,border:'1px solid #30363d',background:'transparent',color:'#8b949e',fontSize:14,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
         </div>
         <div style={{padding:'14px 20px',display:'flex',flexDirection:'column',gap:16}}>
@@ -2218,9 +2218,9 @@ function App(){
       <div style={{padding:'5px 16px',borderTop:'1px solid #21262d',fontSize:10,color:'#adbac7',display:'flex',gap:14,flexWrap:'wrap',letterSpacing:'.04em',flexShrink:0,alignItems:'center'}}>
         <span style={{color:'#8b949e'}}>↑↓ navigate · A/F add · E expand</span>
         <span>⋮⋮ drag</span>
-        <span>☐ multi-select</span>
+        <span>multi-select</span>
         <span>📝 notes</span>
-        <span style={{marginLeft:'auto',color:'#adbac7',cursor:'pointer'}} onClick={()=>setShowShortcuts(true)}>⌨️ shortcuts · Ctrl+Z · Ctrl+S</span>
+        <span style={{marginLeft:'auto',color:'#adbac7',cursor:'pointer'}} onClick={()=>setShowShortcuts(true)}>Shortcuts shortcuts · Ctrl+Z · Ctrl+S</span>
       </div>
     </div>
   );
