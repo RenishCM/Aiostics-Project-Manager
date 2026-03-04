@@ -1,0 +1,2232 @@
+<!--
+================================================================================
+  AIOSTIC PROJECT MANAGER
+  Copyright (c) 2025 Renish C M. All rights reserved.
+
+  PERSONAL USE LICENSE
+  ────────────────────────────────────────────────────────────────────────────
+  Permission is granted, free of charge, to any individual to use, copy, and
+  modify this software solely for personal, educational, or non-commercial
+  purposes, subject to the following conditions:
+
+  1. NON-COMMERCIAL USE ONLY
+     This software, in original or modified form, may not be used in any
+     commercial product, service, SaaS platform, or revenue-generating
+     activity without a separate written commercial license from the author.
+
+  2. ATTRIBUTION
+     This copyright notice and license text must be retained in all copies
+     or substantial portions of the software.
+
+  3. NO RESALE
+     Redistribution for profit, resale, or inclusion in paid software
+     packages is strictly prohibited without prior written permission.
+
+  4. NO WARRANTY
+     This software is provided "as is", without warranty of any kind,
+     express or implied. The author accepts no liability for any damages
+     arising from the use of this software.
+
+  COMMERCIAL LICENSING
+  ────────────────────────────────────────────────────────────────────────────
+  For commercial use, enterprise deployment, or product integration,
+  a commercial license is required. Please contact:
+
+    Renish C M
+    Email : Renish.CM@outlook.com
+
+  Official source: https://github.com/RenishCM/Aiostics-Project-Manager
+================================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aiostic Project Manager</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    :root{--app-font:'Inter',system-ui,sans-serif;--app-font-scale:1.04}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body,#root{height:100%;overflow:hidden}
+    body{background:#010409;font-family:var(--app-font);font-size:calc(13px * var(--app-font-scale))}
+    ::-webkit-scrollbar{width:6px;height:6px}
+    ::-webkit-scrollbar-track{background:#0d1117}
+    ::-webkit-scrollbar-thumb{background:#30363d;border-radius:3px}
+    ::-webkit-scrollbar-thumb:hover{background:#58606a}
+    input,button,textarea{font-family:inherit}
+    .node-row:hover{background:rgba(255,255,255,0.04)!important}
+    .node-row:hover .act{opacity:1!important}
+    .node-row:hover .hint{opacity:1!important}
+    input[type=date]{color-scheme:dark}
+    .node-row.selected{background:rgba(56,139,253,.09)!important;outline:1px solid rgba(56,139,253,.22);outline-offset:-1px;border-radius:5px}
+    .node-row.drag-over{outline:2px dashed #388bfd88;outline-offset:-2px;border-radius:5px}
+    .node-row.kbd-focus{background:rgba(56,139,253,.06)!important;outline:1px solid rgba(56,139,253,.35);outline-offset:-1px;border-radius:5px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .fadein{animation:fadeIn .22s ease forwards}
+    @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+    .dirty-dot{animation:pulse 2s ease-in-out infinite}
+    .tag-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.06em;white-space:nowrap}
+    .proj-tab{display:flex;align-items:center;gap:7px;padding:0 16px;height:36px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0;transition:all .15s;user-select:none}
+    .proj-tab:hover{background:rgba(255,255,255,.04)}
+    .proj-tab.active{border-bottom-color:#388bfd;background:rgba(56,139,253,.08)}
+    .gantt-bar{cursor:grab;transition:filter .15s}
+    .gantt-bar:hover{filter:brightness(1.2)}
+    .gantt-bar.dragging{cursor:grabbing;opacity:.85}
+    .gantt-resize-l,.gantt-resize-r{position:absolute;top:0;bottom:0;width:8px;cursor:col-resize;z-index:2}
+    .gantt-resize-l{left:0;border-radius:4px 0 0 4px}
+    .gantt-resize-r{right:0;border-radius:0 4px 4px 0}
+    .tour-overlay{position:fixed;inset:0;z-index:999;pointer-events:none}
+    .tour-spotlight{position:absolute;border-radius:8px;box-shadow:0 0 0 9999px rgba(0,0,0,.75);pointer-events:none}
+    .tour-tooltip{position:absolute;background:#161b22;border:1px solid #388bfd55;border-radius:10px;padding:16px 18px;width:280px;box-shadow:0 16px 48px rgba(0,0,0,.8);pointer-events:all}
+    @media(max-width:640px){
+      .dash-actions{flex-wrap:wrap!important;gap:4px!important}
+      .dash-actions button{padding:4px 7px!important;font-size:8px!important}
+      .dash-stats{flex-direction:column!important}
+      .search-col{width:100%!important}
+      .tree-scroll{padding:4px 2px 12px!important}
+      .proj-tab{padding:0 10px!important}
+    }
+    @media(max-width:480px){
+      .dash-top{flex-wrap:wrap!important;gap:8px!important}
+      .dash-pct{display:none!important}
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState,useMemo,useRef,useEffect,useCallback,useReducer} = React;
+
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
+const STATUS_ORDER=['new','in-progress','review','completed'];
+const PROJ_TYPES={
+  software:{label:'Software Project',emoji:'💻',nodeLabel:['Folder','File'],addLabel:['folder','file'],hasExt:true,rootDesc:'Software project'},
+  general: {label:'General Project', emoji:'📋',nodeLabel:['Section','Task'],addLabel:['section','task'],hasExt:false,rootDesc:'General project'},
+};
+const S={
+  'new':        {label:'New',    color:'#8b949e',bg:'rgba(139,148,158,.13)',border:'rgba(139,148,158,.3)'},
+  'in-progress':{label:'In Progress',color:'#e3b341',bg:'rgba(227,179,65,.14)', border:'rgba(227,179,65,.4)'},
+  'review':     {label:'Review', color:'#c084fc',bg:'rgba(192,132,252,.14)',border:'rgba(192,132,252,.4)'},
+  'completed':  {label:'Done',   color:'#4ade80',bg:'rgba(74,222,128,.14)', border:'rgba(74,222,128,.4)'},
+};
+const TAG_COLORS={
+  frontend:{color:'#38bdf8',bg:'rgba(56,189,248,.15)',border:'rgba(56,189,248,.35)'},
+  backend: {color:'#fb923c',bg:'rgba(251,146,60,.15)', border:'rgba(251,146,60,.35)'},
+  api:     {color:'#a78bfa',bg:'rgba(167,139,250,.15)',border:'rgba(167,139,250,.35)'},
+  db:      {color:'#34d399',bg:'rgba(52,211,153,.15)', border:'rgba(52,211,153,.35)'},
+  devops:  {color:'#f472b6',bg:'rgba(244,114,182,.15)',border:'rgba(244,114,182,.35)'},
+  ml:      {color:'#fbbf24',bg:'rgba(251,191,36,.15)', border:'rgba(251,191,36,.35)'},
+  security:{color:'#f87171',bg:'rgba(248,113,113,.15)',border:'rgba(248,113,113,.35)'},
+  test:    {color:'#60a5fa',bg:'rgba(96,165,250,.15)', border:'rgba(96,165,250,.35)'},
+  docs:    {color:'#94a3b8',bg:'rgba(148,163,184,.15)',border:'rgba(148,163,184,.35)'},
+  config:  {color:'#c4b5fd',bg:'rgba(196,181,253,.15)',border:'rgba(196,181,253,.35)'},
+};
+const TAG_LIST=Object.keys(TAG_COLORS);
+const LOGO_SRC="data:image/png;base64,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";
+const LS_KEY='aiostic_pm_v3';
+const TOUR_KEY='aiostic_toured_v2';
+const MAX_HISTORY=60;
+
+// ─── TEMPLATES ───────────────────────────────────────────────────────────────
+function makeTemplate(t){
+  function clone(n){
+    const id=`id_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    if(n.type==='folder')return{...n,id,children:(n.children||[]).map(clone)};
+    return{...n,id};
+  }
+  return clone(t.tree);
+}
+const TEMPLATES=[
+  {name:'Web Application',emoji:'🌐',desc:'React frontend, Node backend, SQL database',
+   tree:{id:'T',type:'folder',name:'my-web-app',desc:'Full-stack web app',tags:[],children:[
+    {id:'T1',type:'folder',name:'frontend',tags:[],children:[
+      {id:'T1a',type:'folder',name:'src',tags:[],children:[
+        {id:'T1a1',type:'folder',name:'components',tags:[],children:[
+          {id:'f1',type:'file',name:'App',fileType:'tsx',status:'new',tags:['frontend'],desc:'Root component'},
+          {id:'f2',type:'file',name:'Layout',fileType:'tsx',status:'new',tags:['frontend'],desc:'Page wrapper'},
+          {id:'f3',type:'file',name:'Navbar',fileType:'tsx',status:'new',tags:['frontend'],desc:'Navigation'},
+        ]},
+        {id:'T1a2',type:'folder',name:'pages',tags:[],children:[
+          {id:'f4',type:'file',name:'Home',fileType:'tsx',status:'new',tags:['frontend'],desc:'Landing page'},
+          {id:'f5',type:'file',name:'Dashboard',fileType:'tsx',status:'new',tags:['frontend'],desc:'Dashboard'},
+          {id:'f6',type:'file',name:'Login',fileType:'tsx',status:'new',tags:['frontend'],desc:'Auth page'},
+        ]},
+        {id:'T1a3',type:'folder',name:'hooks',tags:[],children:[
+          {id:'f7',type:'file',name:'useAuth',fileType:'ts',status:'new',tags:['frontend'],desc:'Auth hook'},
+          {id:'f8',type:'file',name:'useApi',fileType:'ts',status:'new',tags:['frontend','api'],desc:'API hook'},
+        ]},
+      ]},
+      {id:'f10',type:'file',name:'package',fileType:'json',status:'new',tags:['config'],desc:'Dependencies'},
+      {id:'f11',type:'file',name:'vite.config',fileType:'ts',status:'new',tags:['config'],desc:'Build config'},
+    ]},
+    {id:'T2',type:'folder',name:'backend',tags:[],children:[
+      {id:'T2a',type:'folder',name:'src',tags:[],children:[
+        {id:'f12',type:'file',name:'server',fileType:'ts',status:'new',tags:['backend'],desc:'Entry point'},
+        {id:'T2a1',type:'folder',name:'routes',tags:[],children:[
+          {id:'f13',type:'file',name:'auth',fileType:'ts',status:'new',tags:['backend','api'],desc:'Auth endpoints'},
+          {id:'f14',type:'file',name:'users',fileType:'ts',status:'new',tags:['backend','api'],desc:'User CRUD'},
+        ]},
+        {id:'T2a2',type:'folder',name:'middleware',tags:[],children:[
+          {id:'f16',type:'file',name:'auth',fileType:'ts',status:'new',tags:['backend','security'],desc:'JWT middleware'},
+        ]},
+      ]},
+      {id:'f18',type:'file',name:'package',fileType:'json',status:'new',tags:['config'],desc:'Dependencies'},
+    ]},
+    {id:'f22',type:'file',name:'docker-compose',fileType:'yml',status:'new',tags:['devops'],desc:'Local containers'},
+    {id:'f24',type:'file',name:'README',fileType:'md',status:'new',tags:['docs'],desc:'Project docs'},
+   ]}},
+  {name:'Mobile App',emoji:'📱',desc:'React Native with navigation, auth & API',
+   tree:{id:'T',type:'folder',name:'my-mobile-app',desc:'React Native app',tags:[],children:[
+    {id:'M1',type:'folder',name:'src',tags:[],children:[
+      {id:'M1a',type:'folder',name:'screens',tags:[],children:[
+        {id:'mf1',type:'file',name:'HomeScreen',fileType:'tsx',status:'new',tags:['frontend'],desc:'Home'},
+        {id:'mf2',type:'file',name:'ProfileScreen',fileType:'tsx',status:'new',tags:['frontend'],desc:'Profile'},
+        {id:'mf3',type:'file',name:'LoginScreen',fileType:'tsx',status:'new',tags:['frontend'],desc:'Login'},
+      ]},
+      {id:'M1b',type:'folder',name:'components',tags:[],children:[
+        {id:'mf5',type:'file',name:'Button',fileType:'tsx',status:'new',tags:['frontend'],desc:'Button'},
+        {id:'mf6',type:'file',name:'Card',fileType:'tsx',status:'new',tags:['frontend'],desc:'Card'},
+      ]},
+      {id:'M1c',type:'folder',name:'navigation',tags:[],children:[
+        {id:'mf8',type:'file',name:'AppNavigator',fileType:'tsx',status:'new',tags:['frontend'],desc:'Root nav'},
+      ]},
+      {id:'M1d',type:'folder',name:'services',tags:[],children:[
+        {id:'mf10',type:'file',name:'api',fileType:'ts',status:'new',tags:['api'],desc:'API client'},
+        {id:'mf11',type:'file',name:'auth',fileType:'ts',status:'new',tags:['security'],desc:'Auth service'},
+      ]},
+    ]},
+    {id:'mf15',type:'file',name:'app',fileType:'json',status:'new',tags:['config'],desc:'Expo config'},
+    {id:'mf16',type:'file',name:'README',fileType:'md',status:'new',tags:['docs'],desc:'Setup guide'},
+   ]}},
+  {name:'ML Pipeline',emoji:'🤖',desc:'Data ingestion, training, evaluation & serving',
+   tree:{id:'T',type:'folder',name:'ml-project',desc:'ML pipeline',tags:[],children:[
+    {id:'ML1',type:'folder',name:'data',tags:[],children:[
+      {id:'mlf1',type:'file',name:'download',fileType:'py',status:'new',tags:['ml'],desc:'Data download'},
+      {id:'mlf2',type:'file',name:'preprocess',fileType:'py',status:'new',tags:['ml'],desc:'Preprocessing'},
+      {id:'mlf3',type:'file',name:'features',fileType:'py',status:'new',tags:['ml'],desc:'Feature engineering'},
+    ]},
+    {id:'ML2',type:'folder',name:'models',tags:[],children:[
+      {id:'mlf4',type:'file',name:'baseline',fileType:'py',status:'new',tags:['ml'],desc:'Baseline model'},
+      {id:'mlf5',type:'file',name:'transformer',fileType:'py',status:'new',tags:['ml'],desc:'Main model'},
+    ]},
+    {id:'ML3',type:'folder',name:'training',tags:[],children:[
+      {id:'mlf7',type:'file',name:'train',fileType:'py',status:'new',tags:['ml'],desc:'Training loop'},
+      {id:'mlf8',type:'file',name:'config',fileType:'yaml',status:'new',tags:['config'],desc:'Hyperparams'},
+    ]},
+    {id:'ML4',type:'folder',name:'evaluation',tags:[],children:[
+      {id:'mlf10',type:'file',name:'evaluate',fileType:'py',status:'new',tags:['ml'],desc:'Evaluation'},
+      {id:'mlf12',type:'file',name:'visualize',fileType:'py',status:'new',tags:['ml'],desc:'Visualizations'},
+    ]},
+    {id:'ML5',type:'folder',name:'serving',tags:[],children:[
+      {id:'mlf13',type:'file',name:'api',fileType:'py',status:'new',tags:['api','backend'],desc:'FastAPI server'},
+      {id:'mlf14',type:'file',name:'Dockerfile',fileType:'',status:'new',tags:['devops'],desc:'Container'},
+    ]},
+    {id:'mlf17',type:'file',name:'requirements',fileType:'txt',status:'new',tags:['config'],desc:'Python deps'},
+   ]}},
+  {name:'Microservices',emoji:'⚙️',desc:'API gateway, services & infra as code',
+   tree:{id:'T',type:'folder',name:'microservices',desc:'Microservices platform',tags:[],children:[
+    {id:'MS1',type:'folder',name:'gateway',tags:[],children:[
+      {id:'msf1',type:'file',name:'server',fileType:'ts',status:'new',tags:['backend','api'],desc:'Gateway entry'},
+      {id:'msf2',type:'file',name:'router',fileType:'ts',status:'new',tags:['backend','api'],desc:'Proxying'},
+      {id:'msf3',type:'file',name:'auth',fileType:'ts',status:'new',tags:['security'],desc:'Auth middleware'},
+    ]},
+    {id:'MS2',type:'folder',name:'services',tags:[],children:[
+      {id:'MS2a',type:'folder',name:'user-service',tags:[],children:[
+        {id:'msf4',type:'file',name:'index',fileType:'ts',status:'new',tags:['backend']},
+        {id:'msf5',type:'file',name:'Dockerfile',fileType:'',status:'new',tags:['devops']},
+      ]},
+      {id:'MS2b',type:'folder',name:'auth-service',tags:[],children:[
+        {id:'msf6',type:'file',name:'index',fileType:'ts',status:'new',tags:['backend','security']},
+        {id:'msf7',type:'file',name:'Dockerfile',fileType:'',status:'new',tags:['devops']},
+      ]},
+    ]},
+    {id:'MS3',type:'folder',name:'infra',tags:[],children:[
+      {id:'msf13',type:'file',name:'docker-compose',fileType:'yml',status:'new',tags:['devops'],desc:'Local dev'},
+      {id:'msf14',type:'file',name:'k8s-deployment',fileType:'yaml',status:'new',tags:['devops'],desc:'K8s manifests'},
+    ]},
+    {id:'msf16',type:'file',name:'README',fileType:'md',status:'new',tags:['docs'],desc:'Overview'},
+   ]}},
+];
+
+// ─── UID ──────────────────────────────────────────────────────────────────────
+let _uid=0;
+const uid=()=>`id_${Date.now()}_${++_uid}`;
+
+// ─── DATE UTILS ───────────────────────────────────────────────────────────────
+const parseD=s=>s?new Date(s+'T00:00:00'):null;
+const fmtD=d=>{const z=n=>String(n).padStart(2,'0');return`${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}`;};
+const shortD=s=>{if(!s)return null;return parseD(s).toLocaleDateString('en',{month:'short',day:'numeric'});};
+const todayStr=()=>fmtD(new Date());
+const addDays=(s,n)=>{const d=parseD(s);d.setDate(d.getDate()+n);return fmtD(d);};
+
+// ─── TREE UTILS ───────────────────────────────────────────────────────────────
+function computeStatus(node){
+  if(node.type==='file')return node.status||'new';
+  const ch=node.children||[];
+  if(!ch.length)return 'new';
+  const ss=ch.map(computeStatus);
+  if(ss.every(s=>s==='new'))return 'new';
+  if(ss.every(s=>s==='completed'))return 'completed';
+  if(ss.every(s=>s==='review'||s==='completed'))return 'review';
+  return 'in-progress';
+}
+function computeDates(node){
+  if(node.type==='file')return{start:node.startDate||null,end:node.endDate||null};
+  const ch=(node.children||[]).map(computeDates);
+  const starts=ch.map(c=>c.start).filter(Boolean).sort();
+  const ends=ch.map(c=>c.end).filter(Boolean).sort();
+  return{start:starts.length?starts[0]:null,end:ends.length?ends[ends.length-1]:null};
+}
+function gatherStats(root){
+  const r={files:0,folders:0,new:0,'in-progress':0,review:0,completed:0};
+  function walk(n,isRoot){
+    if(n.type==='folder'){if(!isRoot)r.folders++;(n.children||[]).forEach(c=>walk(c,false));}
+    else{r.files++;r[n.status||'new']++;}
+  }
+  walk(root,true);return r;
+}
+function folderFileStats(node){
+  const r={new:0,'in-progress':0,review:0,completed:0,total:0};
+  function walk(n){
+    if(n.type==='file'){r[n.status||'new']++;r.total++;}
+    else{(n.children||[]).forEach(walk);}
+  }
+  (node.children||[]).forEach(walk);
+  return r;
+}
+function flattenForGantt(node,depth=0,arr=[]){
+  const d=computeDates(node);
+  arr.push({...node,depth,gStart:d.start,gEnd:d.end,gStatus:computeStatus(node)});
+  if(node.type==='folder'&&node.children)node.children.forEach(c=>flattenForGantt(c,depth+1,arr));
+  return arr;
+}
+function collectAllFolderIds(node,ids=new Set()){
+  if(node.type==='folder'){ids.add(node.id);(node.children||[]).forEach(c=>collectAllFolderIds(c,ids));}
+  return ids;
+}
+function flattenVisible(node,expanded,arr=[]){
+  arr.push(node.id);
+  if(node.type==='folder'&&(expanded.has(node.id)||node._isRoot)){
+    (node.children||[]).forEach(c=>flattenVisible(c,expanded,arr));
+  }
+  return arr;
+}
+function searchTree(node,q){
+  if(!q)return true;
+  const lq=q.toLowerCase();
+  if(node.name.toLowerCase().includes(lq)||(node.desc||'').toLowerCase().includes(lq)||
+     (node.fileType||'').toLowerCase().includes(lq)||(node.tags||[]).some(t=>t.includes(lq)))return true;
+  if(node.type==='folder')return(node.children||[]).some(c=>searchTree(c,lq));
+  return false;
+}
+function gatherAllTags(node,tags=new Set()){
+  (node.tags||[]).forEach(t=>tags.add(t));
+  (node.children||[]).forEach(c=>gatherAllTags(c,tags));
+  return tags;
+}
+const insertNode=(root,pid,item)=>
+  root.id===pid?{...root,children:[...(root.children||[]),item]}
+               :{...root,children:(root.children||[]).map(c=>insertNode(c,pid,item))};
+const removeNode=(root,id)=>({...root,children:(root.children||[]).filter(c=>c.id!==id).map(c=>c.type==='folder'?removeNode(c,id):c)});
+const patchNode=(root,id,ch)=>
+  root.id===id?{...root,...ch}:{...root,children:(root.children||[]).map(c=>patchNode(c,id,ch))};
+function reorderNode(root,parentId,fromIdx,toIdx){
+  if(root.id===parentId){const ch=[...(root.children||[])];const[item]=ch.splice(fromIdx,1);ch.splice(toIdx,0,item);return{...root,children:ch};}
+  return{...root,children:(root.children||[]).map(c=>reorderNode(c,parentId,fromIdx,toIdx))};
+}
+function findNode(root,id){
+  if(root.id===id)return root;
+  for(const ch of(root.children||[])){const r=findNode(ch,id);if(r)return r;}
+  return null;
+}
+function findParent(root,childId){
+  for(const ch of(root.children||[])){
+    if(ch.id===childId)return root;
+    const r=findParent(ch,childId);if(r)return r;
+  }
+  return null;
+}
+
+// ─── EXPORT ───────────────────────────────────────────────────────────────────
+function buildTreeExport(node,prefix='',isLast=true,isRoot=false){
+  const isFolder=node.type==='folder';
+  const status=isFolder?computeStatus(node):(node.status||'new');
+  const statusEmoji={'new':'🔵','in-progress':'🟡','review':'🟣','completed':'🟢'}[status]||'⚪';
+  const name=isFolder?(isRoot?node.name:node.name+'/'):`${node.name}${node.fileType?'.'+node.fileType:''}`;
+  const icon=isFolder?'📁':'📄';
+  const desc=node.desc?`  # ${statusEmoji} ${S[status]?.label} - ${node.desc}`:`  # ${statusEmoji} ${S[status]?.label}`;
+  const tags=(node.tags||[]).length?`  [${node.tags.join(', ')}]`:'';
+  let lines=[];
+  if(isRoot){lines.push(`${icon} ${name}\\`);}
+  else{const conn=isLast?'└── ':'├── ';lines.push(`${prefix}${conn}${icon} ${name}${tags}${desc}`);}
+  if(isFolder&&node.children?.length){
+    const cp=isRoot?'':prefix+(isLast?'    ':'│   ');
+    node.children.forEach((ch,i)=>lines.push(...buildTreeExport(ch,cp,i===node.children.length-1,false)));
+  }
+  return lines;
+}
+
+// ─── SHARED STYLES ────────────────────────────────────────────────────────────
+const lS={fontSize:11,color:'#adbac7',letterSpacing:'.07em',textTransform:'uppercase',marginBottom:5};
+const fS={width:'100%',background:'#161b22',border:'1px solid #30363d',color:'#e6edf3',fontFamily:'inherit',fontSize:12,borderRadius:999,padding:'6px 12px',outline:'none'};
+const fbtn=(col,solid)=>({padding:'5px 18px',borderRadius:999,border:`1px solid ${solid?col:col+'55'}`,background:solid?col+'22':'transparent',color:col,fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase'});
+const tBtn=(col,sz=10)=>({padding:'5px 13px',borderRadius:999,border:`1px solid ${col}44`,background:`${col}14`,color:col,fontSize:sz,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.06em',textTransform:'uppercase',outline:'none',whiteSpace:'nowrap',transition:'all .15s'});
+const rowBtnBase={width:22,height:22,borderRadius:3,cursor:'pointer',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:'inherit',outline:'none',flexShrink:0,padding:0};
+
+// ─── SPARKLINE ────────────────────────────────────────────────────────────────
+function Sparkline({history,pct}){
+  if(!history||history.length<2)return(
+    <div style={{fontSize:10,color:'#8b949e',textAlign:'center',paddingTop:4,fontStyle:'italic',letterSpacing:'.03em'}}>progress over time</div>
+  );
+  const pts=history.slice(-20);
+  const W=80,H=20;
+  const minV=0,maxV=100;
+  const x=(i)=>Math.round(i/(pts.length-1)*W);
+  const y=(v)=>Math.round(H-(v-minV)/(maxV-minV)*H);
+  const d=pts.map((p,i)=>`${i===0?'M':'L'}${x(i)},${y(p.pct)}`).join(' ');
+  const col=pct===100?'#4ade80':pct>60?'#e3b341':'#388bfd';
+  return(
+    <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{display:'block',overflow:'visible'}}>
+      <defs>
+        <linearGradient id="spk" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={col} stopOpacity="0.3"/>
+          <stop offset="100%" stopColor={col} stopOpacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d={`${d} L${W},${H} L0,${H} Z`} fill="url(#spk)"/>
+      <path d={d} fill="none" stroke={col} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx={x(pts.length-1)} cy={y(pts[pts.length-1].pct)} r="2.5" fill={col}/>
+    </svg>
+  );
+}
+
+// ─── TAG CHIP ─────────────────────────────────────────────────────────────────
+function TagChip({tag,onRemove}){
+  const c=TAG_COLORS[tag]||{color:'#94a3b8',bg:'rgba(148,163,184,.15)',border:'rgba(148,163,184,.35)'};
+  return(
+    <span className="tag-chip" style={{background:c.bg,color:c.color,border:`1px solid ${c.border}`}}>
+      {tag}
+      {onRemove&&<span onClick={e=>{e.stopPropagation();onRemove(tag);}} style={{marginLeft:2,opacity:.7,cursor:'pointer'}}>✕</span>}
+    </span>
+  );
+}
+
+// ─── TAG EDITOR ───────────────────────────────────────────────────────────────
+function TagEditor({tags=[],onChange,onClose}){
+  const [input,setInput]=useState('');
+  const add=t=>{const clean=t.trim().toLowerCase().replace(/[^a-z0-9_-]/g,'');if(clean&&!tags.includes(clean))onChange([...tags,clean]);setInput('');};
+  return(
+    <div onClick={e=>e.stopPropagation()}
+      style={{position:'absolute',zIndex:60,top:'100%',left:0,background:'#161b22',border:'1px solid #30363d',borderRadius:7,padding:'10px 12px',minWidth:220,boxShadow:'0 8px 24px rgba(0,0,0,.7)'}}>
+      <div style={{fontSize:9,color:'#adbac7',marginBottom:6,letterSpacing:'.06em',textTransform:'uppercase'}}>Tags</div>
+      <div style={{display:'flex',flexWrap:'wrap',gap:4,marginBottom:8}}>
+        {TAG_LIST.map(t=>{const active=tags.includes(t);const c=TAG_COLORS[t];return(
+          <button key={t} onClick={()=>active?onChange(tags.filter(x=>x!==t)):add(t)}
+            style={{padding:'2px 8px',borderRadius:999,fontSize:8,fontWeight:700,cursor:'pointer',fontFamily:'inherit',background:active?c.bg:'transparent',color:active?c.color:'#8b949e',border:`1px solid ${active?c.border:'#21262d'}`,transition:'all .15s'}}>
+            {t}
+          </button>
+        );})}
+      </div>
+      <div style={{display:'flex',gap:5}}>
+        <input value={input} onChange={e=>setInput(e.target.value)}
+          onKeyDown={e=>{if(e.key==='Enter')add(input);if(e.key==='Escape')onClose();}}
+          placeholder="custom tag…" style={{...fS,fontSize:10,padding:'4px 7px',flex:1}}/>
+        <button onClick={()=>add(input)} style={{...fbtn('#388bfd',true),padding:'4px 10px',fontSize:9}}>+</button>
+      </div>
+      <button onClick={onClose} style={{marginTop:7,fontSize:9,color:'#8b949e',background:'none',border:'none',cursor:'pointer',width:'100%',textAlign:'right',fontFamily:'inherit'}}>done ✓</button>
+    </div>
+  );
+}
+
+// ─── FOLDER SUMMARY PILLS ─────────────────────────────────────────────────────
+function FolderSummaryPills({node}){
+  if(node.type!=='folder')return null;
+  const stats=folderFileStats(node);
+  if(stats.total===0)return null;
+  return(
+    <div style={{display:'flex',gap:3,alignItems:'center',flexWrap:'nowrap',flexShrink:0}}>
+      {STATUS_ORDER.map(k=>{
+        const n=stats[k];if(!n)return null;
+        const c=S[k];const pct=Math.round(n/stats.total*100);
+        return(
+          <span key={k} title={`${c.label}: ${n} file${n>1?'s':''} (${pct}%)`}
+            style={{display:'inline-flex',alignItems:'center',gap:3,padding:'1px 7px',borderRadius:999,background:c.bg,color:c.color,border:`1px solid ${c.border}`,fontSize:9,fontWeight:700,whiteSpace:'nowrap',lineHeight:'16px',letterSpacing:'.04em'}}>
+            <span style={{width:4,height:4,borderRadius:'50%',background:c.color,flexShrink:0}}/>
+            {n} <span style={{opacity:.7}}>{pct}%</span>
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── EXT CHIP ─────────────────────────────────────────────────────────────────
+function ExtChip({value,onChange}){
+  const [editing,setEditing]=useState(false);
+  const [v,setV]=useState(value);
+  const ref=useRef();
+  useEffect(()=>setV(value),[value]);
+  useEffect(()=>{if(editing){ref.current?.focus();ref.current?.select();}},[editing]);
+  const commit=()=>{onChange(v.trim());setEditing(false);};
+  if(editing)return(
+    <div style={{display:'inline-flex',alignItems:'center',gap:2}}>
+      <span style={{fontSize:9,color:'#8b949e'}}>.</span>
+      <input ref={ref} value={v} onChange={e=>setV(e.target.value.slice(0,30))} onBlur={commit}
+        onKeyDown={e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){setV(value);setEditing(false);}}}
+        placeholder="ext"
+        style={{width:60,background:'#161b22',border:'1px solid #388bfd66',color:'#e6edf3',fontFamily:'inherit',fontSize:9,borderRadius:3,padding:'1px 5px',outline:'none'}}/>
+      <button onClick={e=>{e.stopPropagation();onChange('');setEditing(false);}} title="Remove ext"
+        style={{fontSize:9,color:'#f85149',background:'none',border:'none',cursor:'pointer',padding:'0 2px',fontFamily:'inherit',lineHeight:1}}>✕</button>
+    </div>
+  );
+  if(!value)return(
+    <span className="hint" onClick={e=>{e.stopPropagation();setEditing(true);}}
+      style={{fontSize:9,color:'#adbac7',cursor:'pointer',opacity:0,transition:'opacity .15s',background:'transparent',border:'1px dashed #21262d',borderRadius:3,padding:'0 5px',lineHeight:'16px'}}>.ext</span>
+  );
+  return(
+    <span onClick={e=>{e.stopPropagation();setEditing(true);}} title="Click to edit ext"
+      style={{fontSize:9,color:'#adbac7',fontWeight:600,background:'#161b22',border:'1px solid #21262d',borderRadius:3,padding:'0 5px',lineHeight:'16px',flexShrink:0,cursor:'pointer',transition:'border-color .15s'}}>
+      .{value}
+    </span>
+  );
+}
+
+// ─── STATUS BADGE ─────────────────────────────────────────────────────────────
+function StatusBadge({status,onClick}){
+  const c=S[status]||S.new;
+  return(
+    <button onClick={onClick} title={onClick?'Click to cycle':'Auto-computed'}
+      style={{display:'inline-flex',alignItems:'center',gap:4,padding:'2px 9px',borderRadius:999,background:c.bg,color:c.color,border:`1px solid ${c.border}`,fontSize:10,fontWeight:700,letterSpacing:'.07em',textTransform:'uppercase',cursor:onClick?'pointer':'default',outline:'none',fontFamily:'inherit',whiteSpace:'nowrap',lineHeight:'18px',flexShrink:0}}>
+      <span style={{width:5,height:5,borderRadius:'50%',background:c.color,flexShrink:0}}/>
+      {c.label}
+    </button>
+  );
+}
+
+// ─── DATE CHIP ────────────────────────────────────────────────────────────────
+function DateChip({value,onChange,placeholder,accent='#388bfd'}){
+  const [open,setOpen]=useState(false);const ref=useRef();
+  useEffect(()=>{if(open)ref.current?.focus();},[open]);
+  const display=shortD(value);
+  if(open)return(
+    <input ref={ref} type="date" value={value||''} onChange={e=>{onChange(e.target.value||null);setOpen(false);}} onBlur={()=>setOpen(false)}
+      style={{fontSize:9,background:'#161b22',border:`1px solid ${accent}`,color:'#e6edf3',borderRadius:3,padding:'1px 5px',outline:'none',fontFamily:'inherit',width:130,flexShrink:0}}/>
+  );
+  return(
+    <button onClick={()=>setOpen(true)} className={display?'':'hint'}
+      style={{fontSize:9,color:display?accent:'#30363d',background:display?`${accent}18`:'transparent',border:`1px solid ${display?accent+'44':'transparent'}`,borderRadius:3,padding:'1px 7px',cursor:'pointer',fontFamily:'inherit',lineHeight:'16px',outline:'none',flexShrink:0,opacity:display?1:0,transition:'opacity .15s'}}>
+      {display||placeholder}
+    </button>
+  );
+}
+
+// ─── INLINE EDIT ──────────────────────────────────────────────────────────────
+function InlineEdit({value,onChange,placeholder,textStyle={},inputWidth=180,small}){
+  const [editing,setEditing]=useState(false);const [v,setV]=useState(value||'');const ref=useRef();
+  useEffect(()=>setV(value||''),[value]);
+  useEffect(()=>{if(editing){ref.current?.focus();ref.current?.select();}},[editing]);
+  const commit=()=>{onChange(v.trim()||'');setEditing(false);};
+  if(editing)return(
+    <input ref={ref} value={v} onChange={e=>setV(e.target.value)} onBlur={commit}
+      onKeyDown={e=>{if(e.key==='Enter')commit();if(e.key==='Escape'){setV(value||'');setEditing(false);}}}
+      placeholder={placeholder}
+      style={{background:'#161b22',border:'1px solid #388bfd66',color:'#e6edf3',fontFamily:'inherit',fontSize:small?10:12,borderRadius:3,padding:small?'1px 5px':'2px 6px',outline:'none',width:inputWidth}}/>
+  );
+  if(!value)return(
+    <span className="hint" onClick={()=>setEditing(true)} style={{fontSize:small?10:12,color:'#adbac7',fontStyle:'italic',cursor:'text',opacity:0,transition:'opacity .15s',...textStyle}}>{placeholder}</span>
+  );
+  return(<span onClick={()=>setEditing(true)} title="Click to edit" style={{cursor:'text',fontSize:small?10:12,...textStyle}}>{value}</span>);
+}
+
+// ─── NOTES PANEL ──────────────────────────────────────────────────────────────
+function NotesPanel({value,onChange,onClose}){
+  const [v,setV]=useState(value||'');const ref=useRef();
+  useEffect(()=>{ref.current?.focus();},[]);
+  const commit=()=>onChange(v);
+  return(
+    <div onClick={e=>e.stopPropagation()}
+      style={{margin:'2px 0 6px 38px',borderRadius:6,background:'#0d1117',border:'1px solid #388bfd33',padding:'8px 10px',position:'relative'}}>
+      <div style={{fontSize:9,color:'#adbac7',letterSpacing:'.06em',textTransform:'uppercase',marginBottom:5}}>📝 Notes</div>
+      <textarea ref={ref} value={v} onChange={e=>setV(e.target.value)}
+        onBlur={commit}
+        placeholder="Add notes, links, decisions, context…"
+        style={{width:'100%',minHeight:64,background:'transparent',border:'none',color:'#adbac7',fontFamily:'inherit',fontSize:11,resize:'vertical',outline:'none',lineHeight:1.8,padding:0,colorScheme:'dark'}}/>
+      <div style={{display:'flex',justifyContent:'flex-end',gap:6,marginTop:5}}>
+        <button onClick={()=>{commit();onClose();}}
+          style={{...tBtn('#4ade80',9)}}>Save ✓</button>
+        <button onClick={onClose}
+          style={{...tBtn('#484f58',9)}}>Close</button>
+      </div>
+    </div>
+  );
+}
+
+// ─── ADD FORM ─────────────────────────────────────────────────────────────────
+function AddForm({onAdd,onCancel,PT=PROJ_TYPES.software,initialKind='file'}){
+  const [kind,setKind]=useState(initialKind);
+  const [name,setName]=useState('');const [ext,setExt]=useState('');
+  const [desc,setDesc]=useState('');const [sd,setSd]=useState('');const [ed,setEd]=useState('');
+  const [rapid,setRapid]=useState(false);
+  const [addCount,setAddCount]=useState(0);
+  const nameRef=useRef();
+  useEffect(()=>nameRef.current?.focus(),[addCount]);
+  const reset=()=>{setName('');setExt('');setDesc('');setSd('');setEd('');};
+  const submit=()=>{
+    if(!name.trim()){nameRef.current?.focus();return;}
+    let finalName=name.trim(),finalExt=ext.trim().replace(/^\./,'').toLowerCase();
+    if(kind==='file'&&!finalExt&&finalName.includes('.')){
+      const d=finalName.lastIndexOf('.');finalExt=finalName.slice(d+1).toLowerCase();finalName=finalName.slice(0,d);
+    }
+    finalExt=finalExt||'';
+    onAdd({kind,name:finalName,ext:finalExt,desc:desc.trim(),startDate:sd||null,endDate:ed||null});
+    if(rapid){reset();setAddCount(c=>c+1);}
+  };
+  const submitAndClose=()=>{submit();if(!rapid){}};
+  return(
+    <div style={{background:'#0d1117',border:'1px solid #388bfd33',borderRadius:7,padding:'12px 14px',margin:'4px 0',boxShadow:'0 8px 24px rgba(0,0,0,.6)'}}>
+      <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:10}}>
+        {['folder','file'].map((k,ki)=>(
+          <button key={k} onClick={()=>setKind(k)}
+            style={{padding:'4px 16px',borderRadius:999,border:`1px solid ${kind===k?'#388bfd':'#30363d'}`,background:kind===k?'rgba(56,139,253,.15)':'transparent',color:kind===k?'#79c0ff':'#adbac7',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase'}}>
+            {k==='folder'?(PT.hasExt?'📁 ':'📂 ')+PT.nodeLabel[0]:(PT.hasExt?'📄 ':'✅ ')+PT.nodeLabel[1]}
+          </button>
+        ))}
+        <div style={{flex:1}}/>
+        {/* Rapid-add toggle */}
+        <label style={{display:'flex',alignItems:'center',gap:5,cursor:'pointer',fontSize:10,color:rapid?'#e3b341':'#8b949e',userSelect:'none',transition:'color .15s'}}
+          title="Keep form open after each add (great for bulk entry)">
+          <div onClick={()=>setRapid(r=>!r)}
+            style={{width:28,height:16,borderRadius:999,background:rapid?'rgba(227,179,65,.3)':'#161b22',border:`1px solid ${rapid?'#e3b341':'#30363d'}`,position:'relative',transition:'all .2s',flexShrink:0,cursor:'pointer'}}>
+            <div style={{position:'absolute',top:2,left:rapid?12:2,width:10,height:10,borderRadius:'50%',background:rapid?'#e3b341':'#8b949e',transition:'left .2s'}}/>
+          </div>
+          Rapid
+        </label>
+      </div>
+      {rapid&&<div style={{fontSize:10,color:'#e3b341',background:'rgba(227,179,65,.07)',border:'1px solid rgba(227,179,65,.2)',borderRadius:5,padding:'4px 10px',marginBottom:8,letterSpacing:'.03em'}}>
+        ⚡ Rapid mode — Enter adds &amp; resets. Esc to close.
+      </div>}
+      <div style={{display:'flex',gap:8,marginBottom:8}}>
+        <div style={{flex:1}}>
+          <div style={lS}>Name {kind==='file'&&<span style={{color:'#adbac7'}}>(or full filename)</span>}</div>
+          <input ref={nameRef} value={name} onChange={e=>setName(e.target.value)}
+            onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();submit();}if(e.key==='Escape')onCancel();}}
+            placeholder={kind==='folder'?'components':'docker-compose.monitoring.yml'} style={fS}/>
+        </div>
+        {kind==='file'&&PT.hasExt&&(
+          <div style={{width:90}}>
+            <div style={lS}>Ext (opt)</div>
+            <input value={ext} onChange={e=>setExt(e.target.value.slice(0,30))}
+              onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();submit();}if(e.key==='Escape')onCancel();}}
+              placeholder="tsx" style={{...fS,textAlign:'center'}}/>
+          </div>
+        )}
+      </div>
+      <div style={{marginBottom:8}}>
+        <div style={lS}>Description (optional)</div>
+        <input value={desc} onChange={e=>setDesc(e.target.value)}
+          onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();submit();}if(e.key==='Escape')onCancel();}}
+          placeholder="What does this do?" style={fS}/>
+      </div>
+      <div style={{display:'flex',gap:8,marginBottom:12}}>
+        <div style={{flex:1}}><div style={lS}>Start</div><input type="date" value={sd} onChange={e=>setSd(e.target.value)} style={fS}/></div>
+        <div style={{flex:1}}><div style={lS}>End</div><input type="date" value={ed} onChange={e=>setEd(e.target.value)} style={fS}/></div>
+      </div>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:6}}>
+        <div style={{fontSize:10,color:'#8b949e',fontStyle:'italic'}}>{rapid?'Enter → add & reset':'Enter → add'}</div>
+        <div style={{display:'flex',gap:6}}>
+          <button onClick={onCancel} style={{...fbtn('#f85149'),borderRadius:999}}>Esc / Cancel</button>
+          <button onClick={submit} style={{...fbtn('#4ade80',true),borderRadius:999}}>
+            {rapid?`⚡ Add ${kind==='folder'?PT.nodeLabel[0]:PT.nodeLabel[1]}`:`Add ${kind==='folder'?PT.nodeLabel[0]:PT.nodeLabel[1]}`}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── TREE NODE ────────────────────────────────────────────────────────────────
+function TreeNode({node,depth,isRoot,expanded,onToggle,onDelete,onCycleStatus,onPatch,PT=PROJ_TYPES.software,
+                   addingTo,setAddingTo,addingKind,setAddingKind,onAdd,selected,onSelect,searchQ,tagFilter,
+                   dragState,onDragStart,onDragOver,onDragEnd,onDrop,parentId,siblingIndex,
+                   focusedId,notesOpen,onToggleNotes}){
+  const isFolder=node.type==='folder';
+  const isOpen=isRoot||expanded.has(node.id);
+  const status=isFolder?computeStatus(node):(node.status||'new');
+  const pad=12+depth*20;
+  const [showTagEditor,setShowTagEditor]=useState(false);
+
+  const matchesSearch=!searchQ||searchTree(node,searchQ);
+  const matchesTag=!tagFilter||(node.tags||[]).includes(tagFilter)||(isFolder&&(node.children||[]).some(c=>searchTree(c,tagFilter)));
+  if(!matchesSearch||!matchesTag)return null;
+
+  const isSelected=selected.has(node.id)&&!isRoot;
+  const isDragOver=dragState?.overId===node.id;
+  const isFocused=focusedId===node.id&&!isRoot;
+  const hasNotes=!!(node.notes&&node.notes.trim());
+  const isNotesOpen=notesOpen.has(node.id);
+  const dates=isFolder?computeDates(node):{start:node.startDate||null,end:node.endDate||null};
+
+  return(
+    <div data-nodeid={node.id}>
+      <div className={`node-row${isSelected?' selected':''}${isDragOver?' drag-over':''}${isFocused?' kbd-focus':''}`}
+        draggable={!isRoot}
+        onDragStart={!isRoot?e=>onDragStart(e,node.id,parentId,siblingIndex):undefined}
+        onDragOver={!isRoot?e=>onDragOver(e,node.id):undefined}
+        onDragEnd={onDragEnd} onDrop={!isRoot?e=>onDrop(e,node.id,parentId,siblingIndex):undefined}
+        onClick={e=>{if(e.target.closest('button')||e.target.closest('input')||e.target.closest('textarea'))return;if(!isRoot)onSelect(node.id,e.shiftKey||e.ctrlKey||e.metaKey);}}
+        style={{borderRadius:5,paddingLeft:pad,paddingRight:10,paddingTop:2,paddingBottom:1,transition:'background .1s',position:'relative'}}>
+        {!isRoot&&<span style={{position:'absolute',left:pad-10,top:'50%',transform:'translateY(-50%)',fontSize:11,color:'#8b949e',cursor:'grab',opacity:.7,userSelect:'none'}}>⋮⋮</span>}
+        <div style={{display:'flex',alignItems:'center',gap:5,minHeight:32}}>
+          {!isRoot&&(
+            <span onClick={e=>{e.stopPropagation();onSelect(node.id,true);}}
+              style={{width:14,height:14,borderRadius:3,flexShrink:0,cursor:'pointer',border:`1px solid ${isSelected?'#388bfd':'#21262d'}`,background:isSelected?'rgba(56,139,253,.25)':'transparent',display:'flex',alignItems:'center',justifyContent:'center',fontSize:9,color:'#388bfd',transition:'all .15s'}}>
+              {isSelected?'✓':''}
+            </span>
+          )}
+          <span onClick={()=>isFolder&&!isRoot&&onToggle(node.id)}
+            style={{width:16,flexShrink:0,textAlign:'center',fontSize:isFolder?12:8,color:isFolder?'#6e7681':'#21262d',cursor:isFolder&&!isRoot?'pointer':'default',userSelect:'none',transition:'color .15s',lineHeight:1}}
+            onMouseEnter={e=>isFolder&&!isRoot&&(e.currentTarget.style.color='#adbac7')}
+            onMouseLeave={e=>isFolder&&!isRoot&&(e.currentTarget.style.color='#6e7681')}>
+            {isFolder?(isRoot?'◈':isOpen?'⌄':'›'):'·'}
+          </span>
+          <span style={{fontSize:12,flexShrink:0,lineHeight:1}}>{isFolder?(isOpen?'📂':'📁'):'📄'}</span>
+          <InlineEdit value={node.name} onChange={v=>v&&onPatch(node.id,{name:v})} placeholder="name"
+            textStyle={{color:isRoot?'#f0f6fc':'#cdd5e0',fontWeight:isRoot?700:500,whiteSpace:'nowrap'}}/>
+          {!isFolder&&PT.hasExt&&<ExtChip value={node.fileType||''} onChange={v=>onPatch(node.id,{fileType:v.replace(/^\./,'').toLowerCase()})}/>}
+          <div style={{display:'flex',gap:3,alignItems:'center',flexWrap:'wrap',flex:'0 0 auto',position:'relative'}}>
+            {(node.tags||[]).map(t=>(<TagChip key={t} tag={t} onRemove={tag=>onPatch(node.id,{tags:(node.tags||[]).filter(x=>x!==tag)})}/>))}
+            {showTagEditor&&<TagEditor tags={node.tags||[]} onChange={tags=>onPatch(node.id,{tags})} onClose={()=>setShowTagEditor(false)}/>}
+          </div>
+          <div style={{flex:1}}/>
+          {isFolder&&!isRoot&&<FolderSummaryPills node={node}/>}
+          <StatusBadge status={status} onClick={!isFolder?()=>onCycleStatus(node.id,status):undefined}/>
+          <div className="act" style={{display:'flex',gap:3,marginLeft:2,flexShrink:0,opacity:isRoot?1:0,transition:'opacity .15s'}}>
+            {/* Notes button */}
+            <button onClick={e=>{e.stopPropagation();onToggleNotes(node.id);}} title="Notes"
+              style={{...rowBtnBase,fontSize:12,
+                color:hasNotes?'#e3b341':isNotesOpen?'#e3b341':'#484f58',
+                background:isNotesOpen?'rgba(227,179,65,.15)':'rgba(255,255,255,.05)',
+                border:`1px solid ${isNotesOpen?'#e3b34155':'#21262d'}`}}>
+              📝
+            </button>
+            <button onClick={e=>{e.stopPropagation();setShowTagEditor(v=>!v);}} title="Tags"
+              style={{...rowBtnBase,fontSize:10,color:showTagEditor?'#38bdf8':'#484f58',background:showTagEditor?'rgba(56,189,248,.15)':'rgba(255,255,255,.05)',border:`1px solid ${showTagEditor?'#38bdf855':'#21262d'}`}}>🏷</button>
+            {isFolder&&(
+              <button onClick={()=>{const closing=addingTo===node.id;setAddingTo(closing?null:node.id);if(!closing&&!isRoot&&!expanded.has(node.id))onToggle(node.id);}}
+                style={{...rowBtnBase,fontSize:18,lineHeight:'20px',color:addingTo===node.id?'#79c0ff':'#7d8590',background:addingTo===node.id?'rgba(56,139,253,.15)':'rgba(255,255,255,.05)',border:`1px solid ${addingTo===node.id?'#388bfd55':'#30363d'}`}}>+</button>
+            )}
+            {!isRoot&&(
+              <button onClick={e=>{e.stopPropagation();if(window.confirm(`Delete "${node.name}"${isFolder?' and all contents':''}?`))onDelete(node.id);}}
+                style={{...rowBtnBase,color:'#f85149',background:'rgba(248,81,73,.08)',border:'1px solid rgba(248,81,73,.22)',fontSize:14,fontWeight:900}}>−</button>
+            )}
+          </div>
+        </div>
+        {/* desc + dates */}
+        <div style={{paddingLeft:isRoot?18:37,paddingBottom:4,display:'flex',alignItems:'center',gap:6,flexWrap:'wrap',minHeight:6}}>
+          <InlineEdit value={node.desc||''} onChange={v=>onPatch(node.id,{desc:v})} placeholder="+ add description…" inputWidth={300} small textStyle={{color:'#8b949e',fontStyle:'italic'}}/>
+          <div style={{flex:1}}/>
+          {!isFolder?(
+            <div style={{display:'flex',alignItems:'center',gap:4}}>
+              <DateChip value={node.startDate||''} onChange={v=>onPatch(node.id,{startDate:v})} placeholder="+ start" accent='#388bfd'/>
+              {(node.startDate||node.endDate)&&<span style={{fontSize:9,color:'#8b949e'}}>→</span>}
+              <DateChip value={node.endDate||''} onChange={v=>onPatch(node.id,{endDate:v})} placeholder="+ end" accent='#a78bfa'/>
+            </div>
+          ):(dates.start&&<span style={{fontSize:10,color:'#adbac7',fontStyle:'italic'}}>📅 {shortD(dates.start)} → {shortD(dates.end)||'…'}</span>)}
+        </div>
+      </div>
+      {/* Notes panel */}
+      {isNotesOpen&&(
+        <NotesPanel value={node.notes||''} onChange={v=>onPatch(node.id,{notes:v})} onClose={()=>onToggleNotes(node.id)}/>
+      )}
+      {/* Children */}
+      {isFolder&&isOpen&&(
+        <div style={{position:'relative'}}>
+          <div style={{position:'absolute',left:pad+6,top:0,bottom:addingTo===node.id?10:4,width:1,background:'#1c2128',pointerEvents:'none'}}/>
+          {(node.children||[]).map((ch,i)=>(
+            <TreeNode key={ch.id} node={ch} depth={depth+1} isRoot={false}
+              expanded={expanded} onToggle={onToggle} onDelete={onDelete}
+              onCycleStatus={onCycleStatus} onPatch={onPatch}
+              addingTo={addingTo} setAddingTo={setAddingTo} onAdd={onAdd}
+              selected={selected} onSelect={onSelect} searchQ={searchQ} tagFilter={tagFilter}
+              dragState={dragState} onDragStart={onDragStart} onDragOver={onDragOver}
+              onDragEnd={onDragEnd} onDrop={onDrop}
+              parentId={node.id} siblingIndex={i}
+              focusedId={focusedId} notesOpen={notesOpen} onToggleNotes={onToggleNotes}
+              PT={PT} addingKind={addingKind} setAddingKind={setAddingKind}/>
+          ))}
+          {addingTo===node.id&&(
+            <div style={{paddingLeft:12+(depth+1)*20,paddingRight:14,paddingBottom:6}}>
+              <AddForm onAdd={item=>onAdd(node.id,item)} onCancel={()=>setAddingTo(null)} PT={PT} initialKind={addingKind}/>
+            </div>
+          )}
+          {!node.children?.length&&addingTo!==node.id&&(
+            <div style={{paddingLeft:pad+40,paddingBottom:6,fontSize:11,color:'#8b949e',fontStyle:'italic'}}>empty — hover &amp; click + to add</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── GANTT CHART (with draggable bars) ────────────────────────────────────────
+const ROW_H=32,HDR_H=36,NAME_W=240;
+function GanttChart({tree,onPatchNode}){
+  const rows=useMemo(()=>flattenForGantt(tree),[tree]);
+  const [drag,setDrag]=useState(null); // {id,type,startX,origStart,origEnd,pxPerDay}
+  const containerRef=useRef();
+
+  const allDates=rows.flatMap(r=>[r.gStart,r.gEnd].filter(Boolean)).sort();
+  const namesRef=useRef();
+
+  if(!allDates.length)return(
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',gap:14}}>
+      <div style={{fontSize:40}}>📅</div>
+      <div style={{fontSize:14,fontWeight:700,color:'#adbac7'}}>No dates set yet</div>
+      <div style={{fontSize:11,color:'#adbac7',textAlign:'center',maxWidth:340,lineHeight:2}}>
+        Hover any file in Tree view and click <span style={{color:'#388bfd',background:'rgba(56,139,253,.15)',padding:'1px 7px',borderRadius:3,margin:'0 4px'}}>+ start</span> and <span style={{color:'#a78bfa',background:'rgba(167,139,250,.15)',padding:'1px 7px',borderRadius:3,margin:'0 4px'}}>+ end</span> to set dates.
+      </div>
+    </div>
+  );
+
+  const minD=parseD(allDates[0]);const maxD=parseD(allDates[allDates.length-1]);
+  minD.setDate(minD.getDate()-3);maxD.setDate(maxD.getDate()+7);
+  const totalDays=Math.ceil((maxD-minD)/86400000);
+  const pxPerDay=Math.max(3,Math.min(30,Math.round(1100/totalDays)));
+  const totalW=Math.ceil(totalDays*pxPerDay);
+  const dayX=s=>s?Math.round((parseD(s)-minD)/86400000*pxPerDay):null;
+  const xToDate=px=>fmtD(new Date(minD.getTime()+Math.round(px/pxPerDay)*86400000));
+  const todayX=dayX(todayStr());
+  const months=[];let mc=new Date(minD.getFullYear(),minD.getMonth(),1);
+  while(mc<=maxD){months.push({label:mc.toLocaleDateString('en',{month:'short',year:'2-digit'}),x:dayX(fmtD(mc))});mc=new Date(mc.getFullYear(),mc.getMonth()+1,1);}
+
+  const syncScroll=e=>{if(namesRef.current)namesRef.current.scrollTop=e.target.scrollTop;};
+
+  // Drag handlers
+  const onBarMouseDown=(e,row,type)=>{
+    if(row.type==='folder')return;
+    e.preventDefault();e.stopPropagation();
+    setDrag({id:row.id,type,startX:e.clientX,origStart:row.gStart,origEnd:row.gEnd,pxPerDay});
+  };
+  const onMouseMove=useCallback(e=>{
+    if(!drag)return;
+    const dx=e.clientX-drag.startX;
+    const days=Math.round(dx/drag.pxPerDay);
+    if(days===0)return;
+    let ns=drag.origStart,ne=drag.origEnd;
+    if(drag.type==='bar'){ns=addDays(drag.origStart,days);ne=addDays(drag.origEnd,days);}
+    else if(drag.type==='left'){ns=addDays(drag.origStart,days);if(parseD(ns)>=parseD(ne))ns=addDays(ne,-1);}
+    else if(drag.type==='right'){ne=addDays(drag.origEnd,days);if(parseD(ne)<=parseD(ns))ne=addDays(ns,1);}
+    setDrag(d=>({...d,_previewStart:ns,_previewEnd:ne}));
+  },[drag]);
+  const onMouseUp=useCallback(()=>{
+    if(!drag)return;
+    if(drag._previewStart||drag._previewEnd){
+      onPatchNode(drag.id,{startDate:drag._previewStart||drag.origStart,endDate:drag._previewEnd||drag.origEnd});
+    }
+    setDrag(null);
+  },[drag,onPatchNode]);
+
+  useEffect(()=>{
+    if(drag){
+      window.addEventListener('mousemove',onMouseMove);
+      window.addEventListener('mouseup',onMouseUp);
+    }
+    return()=>{window.removeEventListener('mousemove',onMouseMove);window.removeEventListener('mouseup',onMouseUp);};
+  },[drag,onMouseMove,onMouseUp]);
+
+  return(
+    <div style={{display:'flex',height:'100%',overflow:'hidden'}} ref={containerRef}>
+      <div style={{width:NAME_W,flexShrink:0,borderRight:'1px solid #21262d',display:'flex',flexDirection:'column',overflow:'hidden'}}>
+        <div style={{height:HDR_H,flexShrink:0,background:'#010409',borderBottom:'1px solid #21262d',display:'flex',alignItems:'center',paddingLeft:12,fontSize:10,color:'#8b949e',letterSpacing:'.07em',textTransform:'uppercase'}}>
+          Task / File
+          <span style={{marginLeft:'auto',marginRight:10,fontSize:8,color:'#adbac7',fontStyle:'italic'}}>drag bars to adjust</span>
+        </div>
+        <div ref={namesRef} style={{flex:1,overflowY:'hidden',overflowX:'hidden'}}>
+          {rows.map(row=>{const col=S[row.gStatus]?.color||'#8b949e';const isF=row.type==='folder';return(
+            <div key={row.id} style={{height:ROW_H,display:'flex',alignItems:'center',paddingLeft:8+row.depth*14,gap:5,borderBottom:'1px solid #161b22',overflow:'hidden',background:isF?'rgba(255,255,255,.01)':'transparent'}}>
+              <span style={{width:6,height:6,borderRadius:'50%',background:col,flexShrink:0,boxShadow:row.gStart?`0 0 5px ${col}88`:'none'}}/>
+              <span style={{fontSize:11,color:row.depth===0?'#f0f6fc':'#cdd5e0',fontWeight:isF?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',flex:1}}>
+                {row.name}{!isF&&row.fileType?`.${row.fileType}`:''}
+              </span>
+              {row.gStart&&row.gEnd&&<span style={{fontSize:9,color:'#8b949e',paddingRight:6,flexShrink:0}}>{Math.round((parseD(row.gEnd)-parseD(row.gStart))/86400000)+1}d</span>}
+            </div>
+          );})}
+        </div>
+      </div>
+      <div onScroll={syncScroll} style={{flex:1,overflow:'auto',display:'flex',flexDirection:'column',cursor:drag?'grabbing':'default'}}>
+        <div style={{minWidth:totalW+32,position:'relative',flex:1}}>
+          <div style={{height:HDR_H,background:'#010409',borderBottom:'1px solid #21262d',position:'sticky',top:0,zIndex:10,overflow:'hidden'}}>
+            {months.map((m,i)=>(
+              <React.Fragment key={i}>
+                <div style={{position:'absolute',left:m.x+16,top:0,bottom:0,width:1,background:'#21262d'}}/>
+                <div style={{position:'absolute',left:m.x+20,height:HDR_H,display:'flex',alignItems:'center',fontSize:9,color:'#8b949e',fontWeight:700,letterSpacing:'.05em',textTransform:'uppercase',whiteSpace:'nowrap'}}>{m.label}</div>
+              </React.Fragment>
+            ))}
+          </div>
+          {rows.map((row,ri)=>{
+            const col=S[row.gStatus]?.color||'#8b949e';const isF=row.type==='folder';
+            let gStart=row.gStart,gEnd=row.gEnd;
+            if(drag&&drag.id===row.id){gStart=drag._previewStart||gStart;gEnd=drag._previewEnd||gEnd;}
+            const sx=gStart?dayX(gStart):null;const ex=gEnd?dayX(gEnd):null;
+            const barW=sx!==null&&ex!==null?Math.max(pxPerDay,ex-sx+pxPerDay):0;
+            const isDragging=drag?.id===row.id;
+            return(
+              <div key={row.id} style={{height:ROW_H,borderBottom:'1px solid #161b22',position:'relative',background:ri%2===0?'transparent':'rgba(255,255,255,.005)'}}>
+                {months.map((m,i)=>(<div key={i} style={{position:'absolute',left:m.x+16,top:0,bottom:0,width:1,background:'#1c2128',pointerEvents:'none'}}/>))}
+                {sx!==null&&barW>0&&(
+                  <div className={`gantt-bar${isDragging?' dragging':''}`}
+                    title={`${row.name}\n${shortD(gStart)} → ${shortD(gEnd)||'?'}\n${isF?'':'Drag to move, edges to resize'}`}
+                    onMouseDown={!isF?e=>onBarMouseDown(e,{...row,gStart,gEnd},'bar'):undefined}
+                    style={{position:'absolute',left:sx+16,top:isF?6:8,height:isF?ROW_H-12:ROW_H-16,width:barW,
+                      background:isF?`${col}22`:`${col}38`,border:`1px solid ${col}${isF?'55':'88'}`,
+                      borderRadius:isF?3:4,display:'flex',alignItems:'center',paddingLeft:6,overflow:'hidden',
+                      boxShadow:isDragging?`0 4px 16px ${col}55`:isF?'none':`0 1px 6px ${col}2a`}}>
+                    {!isF&&<>
+                      <div className="gantt-resize-l" onMouseDown={e=>{e.stopPropagation();onBarMouseDown(e,{...row,gStart,gEnd},'left');}} style={{background:'transparent'}}/>
+                      <div className="gantt-resize-r" onMouseDown={e=>{e.stopPropagation();onBarMouseDown(e,{...row,gStart,gEnd},'right');}} style={{background:'transparent'}}/>
+                    </>}
+                    <span style={{fontSize:isF?8:9,color:col,fontWeight:isF?700:500,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis',opacity:.9,pointerEvents:'none'}}>{row.name}</span>
+                    {isDragging&&gStart&&<span style={{fontSize:8,color:col,opacity:.7,marginLeft:6,pointerEvents:'none',whiteSpace:'nowrap'}}>{shortD(gStart)} → {shortD(gEnd)}</span>}
+                  </div>
+                )}
+                {sx===null&&<div style={{position:'absolute',left:20,top:'50%',transform:'translateY(-50%)',fontSize:8,color:'#1c2128',fontStyle:'italic'}}>—</div>}
+              </div>
+            );
+          })}
+          {todayX!==null&&todayX>=0&&todayX<=totalW&&(
+            <div style={{position:'absolute',left:todayX+16,top:0,bottom:0,width:1,background:'rgba(248,81,73,.45)',pointerEvents:'none',zIndex:6}}>
+              <div style={{position:'sticky',top:HDR_H+3,fontSize:7,color:'#f85149',fontWeight:700,background:'rgba(248,81,73,.18)',border:'1px solid rgba(248,81,73,.35)',borderRadius:2,padding:'1px 4px',whiteSpace:'nowrap',marginLeft:3,display:'inline-block',letterSpacing:'.06em'}}>TODAY</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── ONBOARDING TOUR ─────────────────────────────────────────────────────────
+const TOUR_STEPS=[
+  {title:'Welcome to Aiostic PM! 👋',body:'Let\'s take a 30-second tour so you get the most out of it.',target:null,pos:'center'},
+  {title:'Add files & folders ➕',body:'Hover any folder row and click the + button to add a file or folder inside it. Type a full filename like docker-compose.yml and the extension is auto-detected.',target:'add-btn',pos:'bottom'},
+  {title:'Track status 🟡',body:'Click the coloured status badge on any file to cycle through New → In Progress → Review → Done. Folder status auto-computes from its children.',target:'status-badge',pos:'left'},
+  {title:'Tags & search 🏷',body:'Click 🏷 to label files with frontend, backend, api and more. Use the search box to instantly filter the tree by name, tag or description.',target:'search-box',pos:'left'},
+  {title:'Gantt view & drag 📊',body:'Switch to Gantt to see your timeline. Set start/end dates on files, then drag bars left/right to reschedule. Drag the edges to resize duration.',target:'gantt-btn',pos:'bottom'},
+  {title:'Undo / Redo ↩️',body:'Made a mistake? Ctrl+Z to undo, Ctrl+Y to redo — up to 60 steps. Use Ctrl+S to save to a file at any time.',target:'undo-btn',pos:'bottom'},
+];
+
+function TourOverlay({step,onNext,onSkip}){
+  const s=TOUR_STEPS[step];
+  if(!s)return null;
+  if(s.pos==='center')return(
+    <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,.75)',zIndex:999,display:'flex',alignItems:'center',justifyContent:'center'}}>
+      <div className="tour-tooltip fadein" style={{position:'relative',maxWidth:340,textAlign:'center'}}>
+        <div style={{fontSize:18,marginBottom:8}}>{s.title}</div>
+        <div style={{fontSize:12,color:'#8b949e',lineHeight:1.8,marginBottom:16}}>{s.body}</div>
+        <div style={{display:'flex',gap:8,justifyContent:'center'}}>
+          <button onClick={onSkip} style={{...tBtn('#484f58',9)}}>Skip tour</button>
+          <button onClick={onNext} style={{...tBtn('#388bfd')}}>Get started →</button>
+        </div>
+      </div>
+    </div>
+  );
+  return(
+    <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,.6)',zIndex:999,display:'flex',alignItems:'flex-start',justifyContent:'flex-end',padding:80}}>
+      <div className="tour-tooltip fadein" style={{maxWidth:280}}>
+        <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc',marginBottom:6}}>{s.title}</div>
+        <div style={{fontSize:11,color:'#8b949e',lineHeight:1.8,marginBottom:14}}>{s.body}</div>
+        <div style={{display:'flex',gap:8,justifyContent:'space-between',alignItems:'center'}}>
+          <span style={{fontSize:9,color:'#8b949e'}}>{step}/{TOUR_STEPS.length-1}</span>
+          <div style={{display:'flex',gap:6}}>
+            <button onClick={onSkip} style={{...tBtn('#484f58',9)}}>Skip</button>
+            <button onClick={onNext} style={{...tBtn('#388bfd',9)}}>
+              {step===TOUR_STEPS.length-1?'Done ✓':'Next →'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── EXPORT MODAL ─────────────────────────────────────────────────────────────
+function ExportModal({tree,projectName,onClose}){
+  const st=useMemo(()=>gatherStats(tree),[tree]);
+  const text=useMemo(()=>{
+    const h=[`# ${projectName}`,`# Exported: ${new Date().toLocaleString()}`,`# Files: ${st.files}  |  Folders: ${st.folders}  |  Done: ${st.completed}/${st.files}`,`#`,`# 🔵 New  🟡 In Progress  🟣 Review  🟢 Done`,``];
+    return[...h,...buildTreeExport(tree,'',true,true)].join('\n');
+  },[tree,projectName,st]);
+  const [copied,setCopied]=useState(false);const taRef=useRef();
+  const copy=()=>{navigator.clipboard?.writeText(text).then(()=>{setCopied(true);setTimeout(()=>setCopied(false),2200)}).catch(()=>{taRef.current?.select();document.execCommand('copy');setCopied(true);setTimeout(()=>setCopied(false),2200);});};
+  const download=()=>{const blob=new Blob([text],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${projectName.replace(/[^a-z0-9]/gi,'_')}_structure.txt`;a.click();};
+  const exportPdf=()=>{
+    const pct=st.files>0?Math.round(st.completed/st.files*100):0;
+    const SCOL={'new':'#8b949e','in-progress':'#e3b341','review':'#c084fc','completed':'#4ade80'};
+    const SLBL={'new':'New','in-progress':'In Progress','review':'Review','completed':'Done'};
+    function nodeToHtml(node,depth,isRoot){
+      const isFolder=node.type==='folder';
+      const status=isFolder?computeStatus(node):(node.status||'new');
+      const col=SCOL[status]||'#8b949e';
+      const name=isFolder?(isRoot?node.name:node.name+'/'):(node.name+(node.fileType?'.'+node.fileType:''));
+      const icon=isFolder?(isRoot?'◈':'📁'):'📄';
+      const tags=(node.tags||[]).map(function(t){return '<span class="tag">'+t+'</span>';}).join('');
+      const indent=depth*18;
+      let h='<div class="node" style="padding-left:'+indent+'px">'
+        +'<span class="icon">'+icon+'</span>'
+        +'<span class="name '+(isFolder?'folder':'')+'">'+name+'</span>'
+        +tags
+        +'<span class="badge" style="background:'+col+'22;color:'+col+';border:1px solid '+col+'55">'+SLBL[status]+'</span>'
+        +(node.desc?'<span class="desc">'+node.desc+'</span>':'')
+        +'</div>';
+      if(node.notes&&node.notes.trim())
+        h+='<div class="notes" style="padding-left:'+(indent+22)+'px">'+node.notes.replace(/\n/g,'<br/>')+'</div>';
+      if(isFolder&&node.children&&node.children.length)
+        h+=node.children.map(function(ch){return nodeToHtml(ch,isRoot?0:depth+1,false);}).join('');
+      return h;
+    }
+    const logoSrc=document.querySelector('link[rel=icon]')?.href||'';
+    const statRows=['New','In Progress','Review','Done'].map(function(l,i){
+      const k=['new','in-progress','review','completed'][i];
+      const col=['#8b949e','#e3b341','#c084fc','#4ade80'][i];
+      return '<div class="stat"><div class="stat-val" style="color:'+col+'">'+(st[k]||0)+'</div><div class="stat-label">'+l+'</div></div>';
+    }).join('');
+    const legendItems=['#8b949e','#e3b341','#c084fc','#4ade80'].map(function(c,i){
+      return '<div class="legend-item"><div class="legend-dot" style="background:'+c+'"></div>'+['New','In Progress','Review','Done'][i]+'</div>';
+    }).join('');
+    const w=window.open('','_blank','width=900,height=700');
+    if(!w){alert('Please allow popups for PDF export.');return;}
+    const html=[
+      '<!DOCTYPE html><html><head><meta charset="UTF-8"/>',
+      '<title>'+projectName+' — Project Structure</title>',
+      '<style>',
+      '*{box-sizing:border-box;margin:0;padding:0}',
+      'body{font-family:"Segoe UI",system-ui,sans-serif;background:#fff;color:#1a1a2e;padding:32px;font-size:12px;line-height:1.7}',
+      '.header{display:flex;align-items:center;gap:16px;border-bottom:2px solid #e5e7eb;padding-bottom:16px;margin-bottom:20px}',
+      '.logo{width:40px;height:40px;object-fit:contain}',
+      '.title{font-size:20px;font-weight:800;color:#111827}',
+      '.subtitle{font-size:11px;color:#6b7280;margin-top:2px}',
+      '.meta{margin-left:auto;text-align:right;font-size:10px;color:#9ca3af}',
+      '.progress-bar{height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden;margin-bottom:4px}',
+      '.progress-fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#3b82f6);border-radius:3px}',
+      '.stats{display:flex;gap:20px;margin-bottom:20px;padding:12px 16px;background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb}',
+      '.stat{text-align:center}',
+      '.stat-val{font-size:18px;font-weight:800}',
+      '.stat-label{font-size:9px;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em}',
+      '.status-legend{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}',
+      '.legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:#6b7280}',
+      '.legend-dot{width:8px;height:8px;border-radius:50%}',
+      '.tree{font-family:"Consolas","Courier New",monospace;font-size:11px}',
+      '.node{display:flex;align-items:baseline;gap:6px;padding:2px 0;border-bottom:1px solid #f3f4f6;flex-wrap:wrap}',
+      '.icon{flex-shrink:0;font-size:11px}',
+      '.name{font-weight:500;color:#111827}',
+      '.folder{font-weight:700;color:#1d4ed8}',
+      '.badge{font-size:8px;font-weight:700;padding:1px 6px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}',
+      '.tag{font-size:8px;background:#eff6ff;color:#3b82f6;border:1px solid #bfdbfe;padding:0 5px;border-radius:999px;font-weight:700}',
+      '.desc{font-size:10px;color:#9ca3af;font-style:italic;flex-basis:100%;padding-left:18px}',
+      '.notes{font-size:10px;color:#6b7280;background:#fffbeb;border-left:3px solid #fbbf24;padding:4px 8px;margin:2px 0 4px;border-radius:0 4px 4px 0;white-space:pre-wrap}',
+      '.footer{margin-top:24px;padding-top:12px;border-top:1px solid #e5e7eb;font-size:9px;color:#d1d5db;display:flex;justify-content:space-between}',
+      '@media print{body{padding:16px} @page{margin:1.5cm;size:A4} .node{page-break-inside:avoid}}',
+      '</style></head><body>',
+      '<div class="header">',
+      (logoSrc?'<img class="logo" src="'+logoSrc+'" alt="logo"/>':''),
+      '<div><div class="title">'+projectName+'</div>',
+      '<div class="subtitle">Project Structure · Aiostic Project Manager</div></div>',
+      '<div class="meta"><div>'+new Date().toLocaleDateString('en',{year:'numeric',month:'long',day:'numeric'})+'</div>',
+      '<div>'+pct+'% complete</div></div></div>',
+      '<div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%"></div></div>',
+      '<div style="font-size:10px;color:#9ca3af;margin-bottom:16px">'+pct+'% complete · '+st.files+' files · '+st.folders+' folders</div>',
+      '<div class="stats">'+statRows+'</div>',
+      '<div class="status-legend">'+legendItems+'</div>',
+      '<div class="tree">'+nodeToHtml(tree,0,true)+'</div>',
+      '<div class="footer"><span>Aiostic Project Manager</span><span>Generated '+new Date().toLocaleString()+'</span></div>',
+      '</body></html>'
+    ].join('\n');
+    w.document.write(html);
+    w.document.close();
+    setTimeout(()=>w.print(),400);
+  };
+  return(
+    <div onClick={e=>{if(e.target===e.currentTarget)onClose();}} style={{position:'fixed',inset:0,background:'rgba(0,0,0,.8)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:200,padding:20}}>
+      <div style={{background:'#0d1117',border:'1px solid #30363d',borderRadius:10,width:'min(780px,96vw)',maxHeight:'85vh',display:'flex',flexDirection:'column',boxShadow:'0 32px 80px rgba(0,0,0,.9)'}}>
+        <div style={{display:'flex',alignItems:'center',gap:10,padding:'13px 16px',borderBottom:'1px solid #21262d',flexShrink:0}}>
+          <div style={{fontSize:14,fontWeight:700,color:'#f0f6fc'}}>📋 Export Project Tree</div>
+          <div style={{flex:1,fontSize:10,color:'#adbac7',paddingLeft:8}}>Visual directory tree · paste into README, docs, or AI chat</div>
+          <button onClick={onClose} style={{width:26,height:26,borderRadius:4,border:'1px solid #30363d',background:'transparent',color:'#7d8590',fontSize:14,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
+        </div>
+        <div style={{flex:1,overflow:'hidden',padding:12,minHeight:0}}>
+          <textarea ref={taRef} readOnly value={text} onClick={e=>e.target.select()}
+            style={{width:'100%',height:'100%',resize:'none',background:'#010409',border:'1px solid #21262d',color:'#adbac7',fontFamily:'inherit',fontSize:11,borderRadius:6,padding:'10px 12px',outline:'none',lineHeight:1.9,colorScheme:'dark'}}/>
+        </div>
+        <div style={{display:'flex',gap:8,padding:'10px 12px',borderTop:'1px solid #21262d',flexShrink:0,alignItems:'center'}}>
+          <div style={{fontSize:10,color:'#8b949e',flex:1}}>{text.split('\n').length} lines</div>
+          <button onClick={copy} style={{padding:'6px 18px',borderRadius:999,border:`1px solid ${copied?'#4ade8055':'#388bfd55'}`,background:copied?'rgba(74,222,128,.12)':'rgba(56,139,253,.12)',color:copied?'#4ade80':'#79c0ff',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',transition:'all .2s'}}>{copied?'✓ Copied!':'⧉ Copy'}</button>
+          <button onClick={download} style={{padding:'6px 18px',borderRadius:999,border:'1px solid #a78bfa44',background:'rgba(167,139,250,.12)',color:'#c084fc',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>⬇ Download</button>
+          <button onClick={exportPdf} style={{padding:'6px 18px',borderRadius:999,border:'1px solid #f97316aa',background:'rgba(249,115,22,.12)',color:'#fb923c',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}} title="Opens print dialog — choose 'Save as PDF'">📄 PDF</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── PROJECT TABS ─────────────────────────────────────────────────────────────
+function ProjectTabs({projects,activeId,onSwitch,onClose,onNewProject,onLoadProject,onShowShortcuts,onStartTour}){
+  return(
+    <div style={{display:'flex',alignItems:'stretch',background:'#010409',borderBottom:'1px solid #21262d',flexShrink:0,minHeight:36}}>
+      {/* Scrollable tabs area */}
+      <div style={{display:'flex',alignItems:'stretch',flex:1,overflowX:'auto',minWidth:0}}>
+        {projects.map(p=>{
+          const active=p.id===activeId;
+          const st=p.tree?gatherStats(p.tree):{files:0,completed:0};
+          const pct=st.files>0?Math.round(st.completed/p.tree?gatherStats(p.tree).files:1*100):0;
+          const realSt=p.tree?gatherStats(p.tree):{files:0,completed:0};
+          const realPct=realSt.files>0?Math.round(realSt.completed/realSt.files*100):0;
+          return(
+            <div key={p.id} className={`proj-tab${active?' active':''}`} onClick={()=>onSwitch(p.id)}>
+              <span style={{fontSize:10,fontWeight:active?700:500,color:active?'#f0f6fc':'#adbac7',maxWidth:140,overflow:'hidden',textOverflow:'ellipsis'}}>{p.projectName}</span>
+              {p.isDirty&&<span className="dirty-dot" style={{width:5,height:5,borderRadius:'50%',background:'#e3b341',flexShrink:0,display:'inline-block'}}/>}
+              <span style={{fontSize:11,color:active?'#adbac7':'#8b949e',fontVariantNumeric:'tabular-nums',flexShrink:0,fontWeight:600}}>{realPct}%</span>
+              <span onClick={e=>{e.stopPropagation();onClose(p.id);}}
+                style={{fontSize:11,color:'#8b949e',cursor:'pointer',lineHeight:1,flexShrink:0,padding:'0 2px',transition:'color .15s'}}
+                onMouseEnter={e=>e.target.style.color='#f85149'}
+                onMouseLeave={e=>e.target.style.color='#8b949e'}>✕</span>
+            </div>
+          );
+        })}
+        {/* New + Open */}
+        <div style={{display:'flex',alignItems:'center',gap:4,padding:'0 10px',flexShrink:0}}>
+          <button onClick={onNewProject} title="New project"
+            style={{width:24,height:24,borderRadius:999,border:'1px solid #21262d',background:'transparent',color:'#8b949e',fontSize:16,cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'inherit',transition:'all .15s',lineHeight:1}}
+            onMouseEnter={e=>{e.currentTarget.style.borderColor='#4ade80';e.currentTarget.style.color='#4ade80';}}
+            onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.color='#8b949e';}}>+</button>
+          <button onClick={onLoadProject} title="Open file"
+            style={{fontSize:9,fontWeight:700,color:'#8b949e',background:'transparent',border:'1px solid #21262d',borderRadius:999,padding:'3px 10px',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s'}}
+            onMouseEnter={e=>{e.currentTarget.style.borderColor='#c084fc';e.currentTarget.style.color='#c084fc';}}
+            onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.color='#8b949e';}}>Open</button>
+        </div>
+      </div>
+      {/* Divider */}
+      <div style={{width:1,background:'#21262d',flexShrink:0,margin:'6px 0'}}/>
+      {/* App-level settings — always visible, never scroll */}
+      <div style={{display:'flex',alignItems:'center',gap:4,padding:'0 10px',flexShrink:0}}>
+        <button onClick={onShowShortcuts} title="Keyboard shortcuts (?)"
+          style={{fontSize:9,fontWeight:700,color:'#8b949e',background:'transparent',border:'1px solid #21262d',borderRadius:999,padding:'3px 10px',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s',display:'flex',alignItems:'center',gap:4}}
+          onMouseEnter={e=>{e.currentTarget.style.borderColor='#a78bfa';e.currentTarget.style.color='#a78bfa';}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.color='#8b949e';}}>
+          ⌨️ Shortcuts
+        </button>
+        <button onClick={onStartTour} title="Take the tour"
+          style={{fontSize:9,fontWeight:700,color:'#8b949e',background:'transparent',border:'1px solid #21262d',borderRadius:999,padding:'3px 10px',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s'}}
+          onMouseEnter={e=>{e.currentTarget.style.borderColor='#c084fc';e.currentTarget.style.color='#c084fc';}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.color='#8b949e';}}>
+          Tour
+        </button>
+        {/* Font picker with label */}
+        <div style={{display:'flex',alignItems:'center',gap:5,border:'1px solid #21262d',borderRadius:999,padding:'0 10px',height:24,transition:'border-color .15s'}}
+          onMouseEnter={e=>e.currentTarget.style.borderColor='#388bfd55'}
+          onMouseLeave={e=>e.currentTarget.style.borderColor='#21262d'}>
+          <span style={{fontSize:9,fontWeight:700,color:'#8b949e',letterSpacing:'.05em',textTransform:'uppercase',whiteSpace:'nowrap'}}>Font</span>
+          <FontSwitcher/>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+// ─── FONT SWITCHER ────────────────────────────────────────────────────────────
+const FONTS=[
+  {key:'inter',    label:'Inter',    family:"'Inter',system-ui,sans-serif",       scale:1},
+  {key:'mono',     label:'Mono',     family:"'JetBrains Mono',Consolas,monospace", scale:0.92},
+  {key:'antiqua',  label:'Antiqua',  family:"'Book Antiqua','Palatino Linotype',serif", scale:1.05},
+  {key:'josefin',  label:'Josefin',  family:"'Josefin Sans',sans-serif",           scale:1},
+];
+const FONT_LS_KEY='aiostic_font';
+function applyFont(key){
+  const f=FONTS.find(x=>x.key===key)||FONTS[0];
+  document.documentElement.style.setProperty('--app-font',f.family);
+  document.documentElement.style.setProperty('--app-font-scale',f.scale);
+  try{localStorage.setItem(FONT_LS_KEY,key);}catch(e){}
+}
+
+function FontSwitcher(){
+  const [active,setActive]=useState(()=>{try{return localStorage.getItem(FONT_LS_KEY)||'inter';}catch{return 'inter';}});
+  useEffect(()=>applyFont(active),[]);
+  return(
+    <select value={active} onChange={e=>{setActive(e.target.value);applyFont(e.target.value);}}
+      title="Switch font"
+      style={{background:'transparent',border:'none',color:'#adbac7',fontFamily:'inherit',fontSize:9,fontWeight:600,padding:'0 2px',cursor:'pointer',outline:'none',colorScheme:'dark'}}
+      onMouseEnter={e=>e.currentTarget.style.borderColor='#388bfd55'}
+      onMouseLeave={e=>e.currentTarget.style.borderColor='#21262d'}>
+      {FONTS.map(f=><option key={f.key} value={f.key}>{f.label}</option>)}
+    </select>
+  );
+}
+
+// ─── DASHBOARD ────────────────────────────────────────────────────────────────
+function Dashboard({st,name,isDirty,fileName,PT,view,setView,onSave,onSaveAs,onExportTree,onShare,onToggleMinimap,showMinimap,
+                    onExpandAll,onCollapseAll,treeView,searchQ,setSearchQ,
+                    tagFilter,setTagFilter,allTags,selectedCount,onBulkStatus,onBulkDelete,
+                    canUndo,canRedo,onUndo,onRedo,undoCount,redoCount,history}){
+  const total=st.files;const pct=total>0?Math.round(st.completed/total*100):0;
+  const bars=STATUS_ORDER.map(k=>({k,...S[k],n:st[k]||0,p:total>0?(st[k]||0)/total*100:0}));
+  return(
+    <div style={{background:'#0d1117',borderBottom:'1px solid #30363d',padding:'11px 16px 10px',flexShrink:0}}>
+      <div className="dash-top" style={{display:'flex',alignItems:'center',gap:10,marginBottom:8}}>
+        <div style={{width:36,height:36,flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <img src={LOGO_SRC} style={{width:36,height:'auto',objectFit:'contain',filter:'drop-shadow(0 2px 10px rgba(56,139,253,.6))'}} alt="logo"/>
+        </div>
+        <div style={{flex:1,minWidth:0}}>
+          <div style={{display:'flex',alignItems:'center',gap:7}}>
+            <div style={{fontSize:16,fontWeight:800,color:'#f0f6fc',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',letterSpacing:'-.01em'}}>{name}</div>
+            {isDirty&&<span className="dirty-dot" title="Unsaved changes" style={{width:7,height:7,borderRadius:'50%',background:'#e3b341',flexShrink:0,display:'inline-block'}}/>}
+          </div>
+          <div style={{display:'flex',alignItems:'center',gap:6,marginTop:1}}>
+            <div style={{fontSize:10,color:'#adbac7',letterSpacing:'.04em',textTransform:'uppercase',fontWeight:600}}>Project Manager</div>
+            {fileName&&<span style={{fontSize:9,color:'#8b949e',borderLeft:'1px solid #21262d',paddingLeft:7,fontStyle:'italic',overflow:'hidden',textOverflow:'ellipsis',maxWidth:160,whiteSpace:'nowrap'}}>{fileName}</span>}
+          </div>
+        </div>
+        {/* Sparkline + pct */}
+        <div className="dash-pct" style={{textAlign:'right',flexShrink:0,display:'flex',flexDirection:'column',alignItems:'flex-end',gap:3}}>
+          <div style={{fontSize:30,fontWeight:900,color:pct===100?'#4ade80':'#f0f6fc',lineHeight:1,fontVariantNumeric:'tabular-nums'}}>
+            {pct}<span style={{fontSize:13,color:'#adbac7',fontWeight:500}}>%</span>
+          </div>
+          <Sparkline history={history} pct={pct}/>
+        </div>
+        {/* Action buttons */}
+        <div className="dash-actions" style={{display:'flex',gap:4,flexShrink:0,alignItems:'center'}}>
+          {/* Undo/Redo */}
+          <div style={{display:'flex',borderRadius:999,overflow:'hidden',border:'1px solid #30363d'}}>
+            <button id="undo-btn" onClick={onUndo} disabled={!canUndo} title={`Undo (Ctrl+Z) — ${undoCount} steps`}
+              style={{padding:'5px 10px',fontSize:10,fontWeight:700,background:'transparent',color:canUndo?'#e3b341':'#30363d',border:'none',cursor:canUndo?'pointer':'not-allowed',fontFamily:'inherit',transition:'all .15s'}}>
+              ↩ {undoCount>0?undoCount:''}
+            </button>
+            <div style={{width:1,background:'#30363d'}}/>
+            <button onClick={onRedo} disabled={!canRedo} title={`Redo (Ctrl+Y) — ${redoCount} steps`}
+              style={{padding:'5px 10px',fontSize:10,fontWeight:700,background:'transparent',color:canRedo?'#79c0ff':'#30363d',border:'none',cursor:canRedo?'pointer':'not-allowed',fontFamily:'inherit',transition:'all .15s'}}>
+              ↪ {redoCount>0?redoCount:''}
+            </button>
+          </div>
+          {/* View toggle */}
+          <div style={{display:'flex',borderRadius:999,overflow:'hidden',border:'1px solid #30363d'}}>
+            {[['tree','🌲 Tree'],['gantt','📊 Gantt']].map(([v,l])=>(
+              <button key={v} id={v==='gantt'?'gantt-btn':undefined} onClick={()=>setView(v)}
+                style={{padding:'5px 11px',fontSize:10,fontWeight:700,background:view===v?'#1f6feb':'transparent',color:view===v?'#fff':'#6e7681',border:'none',cursor:'pointer',fontFamily:'inherit',letterSpacing:'.04em',textTransform:'uppercase',transition:'all .15s'}}>{l}</button>
+            ))}
+          </div>
+          {treeView&&<>
+            <button onClick={onExpandAll} style={tBtn('#388bfd',9)} title="Expand all (E)">⊞</button>
+            <button onClick={onCollapseAll} style={tBtn('#8b949e',9)} title="Collapse all">⊟</button>
+            <button onClick={onToggleMinimap} style={{...tBtn(showMinimap?'#e3b341':'#8b949e',9),boxShadow:showMinimap?'0 0 8px rgba(227,179,65,.2)':'none'}} title="Toggle minimap (M)">🗺</button>
+          </>}
+          <button onClick={onExportTree} style={tBtn('#e3b341')}>📤 Export</button>
+          <button onClick={onShare} style={{...tBtn('#a78bfa'),boxShadow:'0 0 10px rgba(167,139,250,.15)'}} title="Share via link">🔗 Share</button>
+          <button onClick={onSave} style={{...tBtn(isDirty?'#4ade80':'#484f58'),boxShadow:isDirty?'0 0 10px rgba(74,222,128,.25)':'none'}} title="Save (Ctrl+S)">{isDirty?'● Save':'✓ Saved'}</button>
+          <button onClick={onSaveAs} style={tBtn('#79c0ff')} title="Tip: Save into your Google Drive or OneDrive folder for automatic cloud backup">Save As</button>
+
+        </div>
+      </div>
+      {/* Progress bar */}
+      <div style={{height:4,background:'#21262d',borderRadius:2,overflow:'hidden',marginBottom:8}}>
+        <div style={{height:'100%',borderRadius:2,width:`${pct}%`,background:pct===100?'#4ade80':'linear-gradient(90deg,#1f6feb,#388bfd)',transition:'width .4s ease',boxShadow:pct>0?'0 0 8px rgba(56,139,253,.4)':'none'}}/>
+      </div>
+      {/* Stats row */}
+      <div className="dash-stats" style={{display:'flex',gap:10,alignItems:'stretch'}}>
+        <div style={{display:'flex',gap:10,flexShrink:0,alignItems:'center'}}>
+          {[[PT.nodeLabel[0],st.folders,'#388bfd'],[PT.nodeLabel[1],total,'#a78bfa']].map(([l,v,c])=>(
+            <div key={l} style={{display:'flex',flexDirection:'column',alignItems:'center',gap:5}}>
+              <div style={{display:'inline-flex',alignItems:'stretch',background:`${c}14`,border:`1px solid ${c}38`,borderRadius:999,overflow:'hidden',minWidth:72}}>
+                <div style={{width:4,background:c,flexShrink:0}}/>
+                <div style={{padding:'7px 16px',fontSize:22,fontWeight:900,color:'#f0f6fc',fontVariantNumeric:'tabular-nums',letterSpacing:'-.01em',lineHeight:1}}>{v}</div>
+              </div>
+              <div style={{fontSize:11,color:'#adbac7',letterSpacing:'.07em',textTransform:'uppercase',fontWeight:700}}>{l}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{width:1,background:'#30363d',flexShrink:0}}/>
+        <div style={{flex:1,display:'flex',flexDirection:'column',gap:4,justifyContent:'center'}}>
+          {bars.map(({k,label,color,n,p})=>(
+            <div key={k} style={{display:'flex',alignItems:'center',gap:7}}>
+              <span style={{width:7,height:7,borderRadius:'50%',background:color,flexShrink:0,boxShadow:n>0?`0 0 6px ${color}`:''}}/>
+              <div style={{width:60,fontSize:11,color,fontWeight:700,letterSpacing:'.04em',textTransform:'uppercase',flexShrink:0}}>{label}</div>
+              <div style={{flex:1,height:5,background:'#21262d',borderRadius:3,overflow:'hidden'}}>
+                <div style={{height:'100%',borderRadius:3,width:`${p}%`,background:color,transition:'width .4s',boxShadow:p>0?`0 0 6px ${color}66`:''}}/>
+              </div>
+              <div style={{width:26,textAlign:'right',fontSize:12,fontWeight:700,color:n>0?color:'#adbac7',fontVariantNumeric:'tabular-nums',flexShrink:0}}>{n}</div>
+              <div style={{width:44,textAlign:'right',fontSize:11,color:n>0?'#adbac7':'#484f58',fontVariantNumeric:'tabular-nums',flexShrink:0}}>{p.toFixed(1)}%</div>
+            </div>
+          ))}
+        </div>
+        {treeView&&(
+          <div className="search-col" style={{display:'flex',flexDirection:'column',gap:5,width:185,flexShrink:0}}>
+            <div style={{position:'relative'}} id="search-box">
+              <span style={{position:'absolute',left:8,top:'50%',transform:'translateY(-50%)',fontSize:11,color:'#8b949e',pointerEvents:'none'}}>🔍</span>
+              <input value={searchQ} onChange={e=>setSearchQ(e.target.value)} placeholder="Search…"
+                style={{...fS,paddingLeft:26,fontSize:11,border:`1px solid ${searchQ?'#388bfd':'#30363d'}`,boxShadow:searchQ?'0 0 0 2px rgba(56,139,253,.12)':'none'}}/>
+              {searchQ&&<button onClick={()=>setSearchQ('')} style={{position:'absolute',right:6,top:'50%',transform:'translateY(-50%)',background:'none',border:'none',color:'#8b949e',cursor:'pointer',fontSize:12,fontFamily:'inherit'}}>✕</button>}
+            </div>
+            {allTags.size>0&&(
+              <div style={{display:'flex',flexWrap:'wrap',gap:3}}>
+                {[...allTags].map(t=>{const c=TAG_COLORS[t]||{color:'#94a3b8',bg:'rgba(148,163,184,.15)',border:'rgba(148,163,184,.35)'};const active=tagFilter===t;return(
+                  <button key={t} onClick={()=>setTagFilter(active?null:t)}
+                    style={{padding:'1px 7px',borderRadius:999,fontSize:8,fontWeight:700,cursor:'pointer',fontFamily:'inherit',background:active?c.bg:'transparent',color:active?c.color:'#8b949e',border:`1px solid ${active?c.border:'#21262d'}`,transition:'all .15s'}}>{t}</button>
+                );})}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+      {selectedCount>0&&(
+        <div className="fadein" style={{marginTop:8,display:'flex',alignItems:'center',gap:8,background:'rgba(56,139,253,.1)',border:'1px solid rgba(56,139,253,.3)',borderRadius:6,padding:'6px 12px'}}>
+          <span style={{fontSize:11,color:'#79c0ff',fontWeight:700}}>{selectedCount} selected</span>
+          <div style={{flex:1}}/>
+          <span style={{fontSize:10,color:'#adbac7'}}>Set all to:</span>
+          {STATUS_ORDER.map(k=>{const c=S[k];return(
+            <button key={k} onClick={()=>onBulkStatus(k)} style={{padding:'2px 12px',borderRadius:999,border:`1px solid ${c.border}`,background:c.bg,color:c.color,fontSize:9,fontWeight:700,cursor:'pointer',fontFamily:'inherit'}}>{c.label}</button>
+          );})}
+          <button onClick={onBulkDelete} style={{padding:'2px 12px',borderRadius:999,border:'1px solid rgba(248,81,73,.3)',background:'rgba(248,81,73,.1)',color:'#f85149',fontSize:9,fontWeight:700,cursor:'pointer',fontFamily:'inherit',marginLeft:4}}>🗑 Delete</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── WELCOME ──────────────────────────────────────────────────────────────────
+function Welcome({onNew,onLoad,onResume,lastProjects,onTemplate}){
+  const [mode,setMode]=useState('home');
+  const [projType,setProjType]=useState('software');
+  const [name,setName]=useState('');const [desc,setDesc]=useState('');
+  const valid=name.trim().length>0;const nameRef=useRef();
+  useEffect(()=>{if(mode==='newform')nameRef.current?.focus();},[mode]);
+  return(
+    <div className="fadein" style={{display:'flex',alignItems:'center',justifyContent:'center',minHeight:'100vh',background:'#010409',padding:20,overflowY:'auto'}}>
+      <div style={{width:'min(640px,100%)',display:'flex',flexDirection:'column',gap:14,alignItems:'center'}}>
+        <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:12,marginBottom:4}}>
+          <img src={LOGO_SRC} style={{width:80,height:'auto',objectFit:'contain',filter:'drop-shadow(0 6px 24px rgba(31,111,235,.55))'}} alt="logo"/>
+          <div style={{textAlign:'center'}}>
+            <h1 style={{color:'#f0f6fc',fontSize:22,fontWeight:800,letterSpacing:'-.01em',margin:'0 0 4px'}}>Aiostic Project Manager</h1>
+            <p style={{color:'#adbac7',fontSize:11,lineHeight:1.8,margin:0}}>Plan, track and visualise your software projects</p>
+          </div>
+        </div>
+        {lastProjects?.length>0&&mode==='home'&&(
+          <div style={{width:'100%'}}>
+            <div style={{fontSize:9,color:'#8b949e',letterSpacing:'.07em',textTransform:'uppercase',marginBottom:6}}>Recent Projects</div>
+            <div style={{display:'flex',flexDirection:'column',gap:5}}>
+              {lastProjects.slice(0,3).map((p,i)=>{
+                const ts=p.savedAt?new Date(p.savedAt).toLocaleString('en',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):null;
+                const st=p._stats||{};const pct=st.files>0?Math.round((st.completed||0)/st.files*100):0;
+                return(
+                  <div key={i} style={{background:'rgba(56,139,253,.07)',border:'1px solid rgba(56,139,253,.2)',borderRadius:8,padding:'10px 14px',cursor:'pointer',transition:'all .2s'}}
+                    onClick={()=>onResume(p)}
+                    onMouseEnter={e=>e.currentTarget.style.background='rgba(56,139,253,.13)'}
+                    onMouseLeave={e=>e.currentTarget.style.background='rgba(56,139,253,.07)'}>
+                    <div style={{display:'flex',alignItems:'center',gap:10}}>
+                      <div style={{fontSize:20}}>📂</div>
+                      <div style={{flex:1}}>
+                        <div style={{fontSize:12,fontWeight:700,color:'#79c0ff'}}>{p.projectName}</div>
+                        <div style={{fontSize:10,color:'#8b949e',marginTop:1}}>{ts} · {st.files||0} files · {pct}% done</div>
+                      </div>
+                      <div style={{fontSize:11,color:'#388bfd',fontWeight:700,letterSpacing:'.04em',textTransform:'uppercase'}}>Open →</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {mode==='home'&&(
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:10,width:'100%'}}>
+            {[
+              {emoji:'✨',label:'New Project',color:'#4ade80',action:()=>setMode('newform')},
+              {emoji:'📂',label:'Open File',color:'#c084fc',action:onLoad},
+              {emoji:'🗂️',label:'From Template',color:'#e3b341',action:()=>setMode('templates')},
+            ].map(({emoji,label,color,action})=>(
+              <div key={label} style={{background:'#0d1117',border:'1px solid #21262d',borderRadius:10,padding:'18px 12px',cursor:'pointer',transition:'all .2s',textAlign:'center'}}
+                onClick={action}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=color;e.currentTarget.style.background=`${color}0d`;}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.background='#0d1117';}}>
+                <div style={{fontSize:28,marginBottom:8}}>{emoji}</div>
+                <div style={{fontSize:12,fontWeight:700,color}}>{label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+        {mode==='newform'&&(
+          <div className="fadein" style={{width:'100%',background:'#0d1117',border:'1px solid #4ade8044',borderRadius:10,padding:'20px'}}>
+            <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc',marginBottom:14}}>✨ New Project</div>
+            <div style={{marginBottom:10}}>
+              <div style={lS}>Project Name *</div>
+              <input ref={nameRef} value={name} onChange={e=>setName(e.target.value)}
+                onKeyDown={e=>e.key==='Enter'&&valid&&onNew(name.trim(),desc.trim())}
+                placeholder="my-awesome-project"
+                style={{...fS,border:`1px solid ${valid?'#388bfd':'#30363d'}`,boxShadow:valid?'0 0 0 3px rgba(56,139,253,.12)':'none'}}/>
+            </div>
+            <div style={{marginBottom:14}}>
+              <div style={lS}>Description (optional)</div>
+              <input value={desc} onChange={e=>setDesc(e.target.value)}
+                onKeyDown={e=>e.key==='Enter'&&valid&&onNew(name.trim(),desc.trim())}
+                placeholder="Brief description" style={fS}/>
+            </div>
+            <div style={{marginBottom:14}}>
+              <div style={lS}>Project Type</div>
+              <div style={{display:'flex',gap:8}}>
+                {Object.entries(PROJ_TYPES).map(([k,v])=>(
+                  <button key={k} onClick={()=>setProjType(k)}
+                    style={{flex:1,padding:'8px 12px',borderRadius:999,border:`1px solid ${projType===k?'#388bfd':'#30363d'}`,background:projType===k?'rgba(56,139,253,.15)':'transparent',color:projType===k?'#79c0ff':'#6e7681',fontSize:11,fontWeight:700,cursor:'pointer',fontFamily:'inherit',transition:'all .15s',textAlign:'center'}}>
+                    <div style={{fontSize:18,marginBottom:3}}>{v.emoji}</div>
+                    <div>{v.label}</div>
+                    <div style={{fontSize:9,opacity:.6,marginTop:2}}>{v.nodeLabel[0]} / {v.nodeLabel[1]}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div style={{display:'flex',gap:8}}>
+              <button onClick={()=>{setMode('home');setName('');setDesc('');}} style={{...fbtn('#f85149'),borderRadius:999,flex:'0 0 auto'}}>← Back</button>
+              <button onClick={()=>valid&&onNew(name.trim(),desc.trim(),projType)} style={{flex:1,padding:'9px',borderRadius:999,border:'none',background:valid?'#1f6feb':'#21262d',color:valid?'#fff':'#6e7681',fontSize:12,fontWeight:700,cursor:valid?'pointer':'not-allowed',fontFamily:'inherit',transition:'all .2s'}}>Create Project →</button>
+            </div>
+          </div>
+        )}
+        {mode==='templates'&&(
+          <div className="fadein" style={{width:'100%'}}>
+            <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:12}}>
+              <button onClick={()=>setMode('home')} style={{...fbtn('#484f58'),padding:'3px 12px',fontSize:9,borderRadius:999}}>← Back</button>
+              <div style={{fontSize:13,fontWeight:700,color:'#f0f6fc'}}>🗂️ Start from a Template</div>
+            </div>
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
+              {TEMPLATES.map(t=>(
+                <div key={t.name} style={{background:'#0d1117',border:'1px solid #21262d',borderRadius:10,padding:'15px',cursor:'pointer',transition:'all .2s'}}
+                  onClick={()=>onTemplate(t)}
+                  onMouseEnter={e=>{e.currentTarget.style.borderColor='#e3b341';e.currentTarget.style.background='rgba(227,179,65,.06)';}}
+                  onMouseLeave={e=>{e.currentTarget.style.borderColor='#21262d';e.currentTarget.style.background='#0d1117';}}>
+                  <div style={{fontSize:26,marginBottom:7}}>{t.emoji}</div>
+                  <div style={{fontSize:12,fontWeight:700,color:'#e3b341',marginBottom:3}}>{t.name}</div>
+                  <div style={{fontSize:10,color:'#adbac7',lineHeight:1.7}}>{t.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        <div style={{width:'100%',padding:'9px 13px',background:'#0d1117',borderRadius:7,border:'1px solid #21262d'}}>
+          <div style={{fontSize:10,color:'#8b949e',lineHeight:2,display:'flex',flexWrap:'wrap',gap:'0 18px'}}>
+            <span><span style={{color:'#79c0ff'}}>hover row</span> → + add  − del</span>
+            <span><span style={{color:'#79c0ff'}}>📝</span> notes</span>
+            <span><span style={{color:'#79c0ff'}}>🏷 tag</span> → filter</span>
+            <span><span style={{color:'#79c0ff'}}>drag ⋮⋮</span> → reorder</span>
+            <span><span style={{color:'#79c0ff'}}>↩ Ctrl+Z</span> → undo</span>
+            <span><span style={{color:'#79c0ff'}}>↑↓ arrows</span> → navigate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+// ─── COMPRESS / DECOMPRESS (URL sharing) ─────────────────────────────────────
+async function compressProject(obj){
+  const json=JSON.stringify(obj);
+  const bytes=new TextEncoder().encode(json);
+  const cs=new CompressionStream('deflate-raw');
+  const writer=cs.writable.getWriter();
+  writer.write(bytes);writer.close();
+  const buf=await new Response(cs.readable).arrayBuffer();
+  return btoa(String.fromCharCode(...new Uint8Array(buf)))
+    .replace(/\+/g,'-').replace(/\//g,'_').replace(/=/g,'');
+}
+async function decompressProject(b64){
+  const bin=atob(b64.replace(/-/g,'+').replace(/_/g,'/'));
+  const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));
+  const ds=new DecompressionStream('deflate-raw');
+  const writer=ds.writable.getWriter();
+  writer.write(bytes);writer.close();
+  const buf=await new Response(ds.readable).arrayBuffer();
+  return JSON.parse(new TextDecoder().decode(buf));
+}
+
+// ─── SHARE MODAL ─────────────────────────────────────────────────────────────
+function ShareModal({tree,projectName,onClose}){
+  const [url,setUrl]=useState('');
+  const [loading,setLoading]=useState(true);
+  const [copied,setCopied]=useState(false);
+  const [err,setErr]=useState('');
+
+  useEffect(()=>{
+    compressProject({projectName,tree,sharedAt:new Date().toISOString()})
+      .then(encoded=>{
+        const base=window.location.href.split('#')[0];
+        const full=`${base}#share=${encoded}`;
+        if(full.length>200000){setErr('Project is too large to share via URL (>200KB). Export as a file instead.');setLoading(false);return;}
+        setUrl(full);setLoading(false);
+      })
+      .catch(e=>{setErr('Could not generate link: '+e.message);setLoading(false);});
+  },[]);
+
+  const copy=()=>{
+    navigator.clipboard?.writeText(url).then(()=>{setCopied(true);setTimeout(()=>setCopied(false),2500);})
+      .catch(()=>{const ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);setCopied(true);setTimeout(()=>setCopied(false),2500);});
+  };
+
+  const sizeKB=url?Math.round(url.length/1024):0;
+
+  return(
+    <div onClick={e=>{if(e.target===e.currentTarget)onClose();}}
+      style={{position:'fixed',inset:0,background:'rgba(0,0,0,.85)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:300,padding:20}}>
+      <div className="fadein" style={{background:'#0d1117',border:'1px solid #388bfd44',borderRadius:12,width:'min(580px,96vw)',boxShadow:'0 32px 80px rgba(0,0,0,.9)',overflow:'hidden'}}>
+        {/* Header */}
+        <div style={{padding:'16px 20px',borderBottom:'1px solid #21262d',display:'flex',alignItems:'center',gap:10}}>
+          <div style={{fontSize:20}}>🔗</div>
+          <div style={{flex:1}}>
+            <div style={{fontSize:14,fontWeight:700,color:'#f0f6fc'}}>Share Project</div>
+            <div style={{fontSize:10,color:'#adbac7',marginTop:2}}>Anyone with the link can view — no account, no server, works offline</div>
+          </div>
+          <button onClick={onClose} style={{width:26,height:26,borderRadius:999,border:'1px solid #30363d',background:'transparent',color:'#7d8590',fontSize:14,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
+        </div>
+        {/* Body */}
+        <div style={{padding:'18px 20px'}}>
+          {loading&&<div style={{textAlign:'center',padding:'20px 0',color:'#8b949e',fontSize:12}}>Generating link…</div>}
+          {err&&<div style={{color:'#f85149',fontSize:11,lineHeight:1.8,padding:'8px 12px',background:'rgba(248,81,73,.08)',borderRadius:6,border:'1px solid rgba(248,81,73,.2)'}}>{err}</div>}
+          {url&&!err&&(<>
+            {/* Info pills */}
+            <div style={{display:'flex',gap:6,marginBottom:14,flexWrap:'wrap'}}>
+              {[
+                ['🔒 Read-only','#4ade80'],
+                ['📦 Self-contained','#38bdf8'],
+                ['🌐 No server needed','#a78bfa'],
+                [`${sizeKB} KB`,'#e3b341'],
+              ].map(([l,c])=>(
+                <span key={l} style={{padding:'2px 10px',borderRadius:999,fontSize:9,fontWeight:700,color:c,background:`${c}18`,border:`1px solid ${c}33`}}>{l}</span>
+              ))}
+            </div>
+            {/* URL box */}
+            <div style={{background:'#010409',border:'1px solid #388bfd44',borderRadius:8,padding:'10px 14px',marginBottom:14,fontFamily:'inherit'}}>
+              <div style={{fontSize:9,color:'#8b949e',marginBottom:5,letterSpacing:'.06em',textTransform:'uppercase'}}>Shareable URL</div>
+              <div style={{fontSize:10,color:'#79c0ff',wordBreak:'break-all',lineHeight:1.7,maxHeight:60,overflow:'hidden',textOverflow:'ellipsis',display:'-webkit-box',WebkitLineClamp:3,WebkitBoxOrient:'vertical'}}>{url}</div>
+            </div>
+            {/* Copy button */}
+            <button onClick={copy}
+              style={{width:'100%',padding:'11px',borderRadius:999,border:`1px solid ${copied?'#4ade8055':'#388bfd55'}`,background:copied?'rgba(74,222,128,.12)':'rgba(56,139,253,.12)',color:copied?'#4ade80':'#79c0ff',fontSize:12,fontWeight:700,cursor:'pointer',fontFamily:'inherit',transition:'all .2s',letterSpacing:'.04em'}}>
+              {copied?'✓ Copied to clipboard!':'⧉ Copy Link'}
+            </button>
+            <div style={{fontSize:9,color:'#adbac7',textAlign:'center',marginTop:8,lineHeight:1.8}}>
+              The entire project is encoded in the URL — no data is sent anywhere.<br/>Recipient opens it in any browser, no install needed.
+            </div>
+          </>)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── READ-ONLY VIEW ───────────────────────────────────────────────────────────
+function ReadOnlyNode({node,depth,expanded,onToggle}){
+  const isFolder=node.type==='folder';
+  const isOpen=depth===0||expanded.has(node.id);
+  const status=isFolder?computeStatus(node):(node.status||'new');
+  const pad=12+depth*20;
+  return(
+    <div>
+      <div style={{borderRadius:5,paddingLeft:pad,paddingRight:10,paddingTop:2,paddingBottom:1}}>
+        <div style={{display:'flex',alignItems:'center',gap:5,minHeight:28}}>
+          <span onClick={()=>isFolder&&depth>0&&onToggle(node.id)}
+            style={{width:16,flexShrink:0,textAlign:'center',fontSize:isFolder?12:8,color:isFolder?'#6e7681':'#21262d',cursor:isFolder&&depth>0?'pointer':'default',userSelect:'none',lineHeight:1}}>
+            {isFolder?(depth===0?'◈':isOpen?'⌄':'›'):'·'}
+          </span>
+          <span style={{fontSize:12,flexShrink:0}}>{isFolder?(isOpen?'📂':'📁'):'📄'}</span>
+          <span style={{fontSize:12,color:depth===0?'#f0f6fc':'#cdd5e0',fontWeight:depth===0?700:500}}>{node.name}</span>
+          {!isFolder&&node.fileType&&<span style={{fontSize:9,color:'#adbac7',fontWeight:600,background:'#161b22',border:'1px solid #21262d',borderRadius:3,padding:'0 5px',lineHeight:'16px',flexShrink:0}}>.{node.fileType}</span>}
+          {(node.tags||[]).map(t=><TagChip key={t} tag={t}/>)}
+          <div style={{flex:1}}/>
+          {isFolder&&depth>0&&<FolderSummaryPills node={node}/>}
+          <StatusBadge status={status}/>
+        </div>
+        {node.desc&&<div style={{paddingLeft:pad===12?18:37,paddingBottom:3,fontSize:10,color:'#8b949e',fontStyle:'italic'}}>{node.desc}</div>}
+        {node.notes&&node.notes.trim()&&(
+          <div style={{margin:'2px 0 4px',paddingLeft:pad===12?18:37}}>
+            <div style={{fontSize:10,color:'#adbac7',background:'rgba(227,179,65,.06)',border:'1px solid #e3b34122',borderRadius:5,padding:'6px 10px',lineHeight:1.7,whiteSpace:'pre-wrap'}}>{node.notes}</div>
+          </div>
+        )}
+      </div>
+      {isFolder&&isOpen&&(
+        <div style={{position:'relative'}}>
+          <div style={{position:'absolute',left:pad+6,top:0,bottom:4,width:1,background:'#1c2128',pointerEvents:'none'}}/>
+          {(node.children||[]).map(ch=>(
+            <ReadOnlyNode key={ch.id} node={ch} depth={depth+1} expanded={expanded} onToggle={onToggle}/>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SharedView({data,onEdit}){
+  const tree=data.tree;
+  const st=useMemo(()=>gatherStats(tree),[tree]);
+  const pct=st.files>0?Math.round(st.completed/st.files*100):0;
+  const [expanded,setExpanded]=useState(collectAllFolderIds(tree));
+  const [view,setView]=useState('tree');
+  const toggle=id=>setExpanded(s=>{const n=new Set(s);n.has(id)?n.delete(id):n.add(id);return n;});
+  const sharedAt=data.sharedAt?new Date(data.sharedAt).toLocaleString('en',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'}):null;
+  const bars=STATUS_ORDER.map(k=>({k,...S[k],n:st[k]||0,p:st.files>0?(st[k]||0)/st.files*100:0}));
+
+  return(
+    <div style={{display:'flex',flexDirection:'column',height:'100vh',background:'#010409',color:'#cdd5e0',overflow:'hidden'}}>
+      {/* Shared banner */}
+      <div style={{background:'linear-gradient(90deg,rgba(56,139,253,.15),rgba(167,139,250,.15))',borderBottom:'1px solid #388bfd33',padding:'8px 16px',display:'flex',alignItems:'center',gap:10,flexShrink:0}}>
+        <span style={{fontSize:14}}>🔗</span>
+        <span style={{fontSize:11,color:'#79c0ff',fontWeight:700}}>Shared view</span>
+        <span style={{fontSize:10,color:'#8b949e'}}>— read only{sharedAt?` · shared ${sharedAt}`:''}</span>
+        <div style={{flex:1}}/>
+        <button onClick={onEdit}
+          style={{padding:'5px 16px',borderRadius:999,border:'1px solid #4ade8055',background:'rgba(74,222,128,.12)',color:'#4ade80',fontSize:10,fontWeight:700,cursor:'pointer',fontFamily:'inherit',letterSpacing:'.05em',textTransform:'uppercase',transition:'all .15s'}}>
+          ✎ Open for editing
+        </button>
+      </div>
+      {/* Mini dashboard */}
+      <div style={{background:'#0d1117',borderBottom:'1px solid #30363d',padding:'11px 16px',flexShrink:0}}>
+        <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:8}}>
+          <img src={LOGO_SRC} style={{width:32,height:'auto',filter:'drop-shadow(0 2px 10px rgba(56,139,253,.5))'}} alt="logo"/>
+          <div style={{flex:1}}>
+            <div style={{fontSize:16,fontWeight:800,color:'#f0f6fc',letterSpacing:'-.01em'}}>{data.projectName}</div>
+            <div style={{fontSize:10,color:'#adbac7',textTransform:'uppercase',letterSpacing:'.04em',fontWeight:600}}>Project Manager</div>
+          </div>
+          <div style={{textAlign:'right'}}>
+            <div style={{fontSize:28,fontWeight:900,color:pct===100?'#4ade80':'#f0f6fc',lineHeight:1}}>{pct}<span style={{fontSize:12,color:'#adbac7',fontWeight:500}}>%</span></div>
+          </div>
+          {/* view toggle */}
+          <div style={{display:'flex',borderRadius:999,overflow:'hidden',border:'1px solid #30363d'}}>
+            {[['tree','🌲 Tree'],['gantt','📊 Gantt']].map(([v,l])=>(
+              <button key={v} onClick={()=>setView(v)} style={{padding:'5px 11px',fontSize:10,fontWeight:700,background:view===v?'#1f6feb':'transparent',color:view===v?'#fff':'#6e7681',border:'none',cursor:'pointer',fontFamily:'inherit',textTransform:'uppercase',transition:'all .15s'}}>{l}</button>
+            ))}
+          </div>
+        </div>
+        <div style={{height:4,background:'#21262d',borderRadius:2,overflow:'hidden',marginBottom:8}}>
+          <div style={{height:'100%',borderRadius:2,width:`${pct}%`,background:pct===100?'#4ade80':'linear-gradient(90deg,#1f6feb,#388bfd)',transition:'width .4s'}}/>
+        </div>
+        <div style={{display:'flex',gap:8,alignItems:'center'}}>
+          <div style={{display:'flex',gap:5}}>
+            {[['Folders',st.folders],['Files',st.files]].map(([l,v])=>(
+              <div key={l} style={{background:'#161b22',border:'1px solid #30363d',borderRadius:5,padding:'4px 10px',textAlign:'center',minWidth:52}}>
+                <div style={{fontSize:18,fontWeight:900,color:'#cdd5e0',lineHeight:1}}>{v}</div>
+                <div style={{fontSize:9,color:'#adbac7',marginTop:1,textTransform:'uppercase',letterSpacing:'.05em'}}>{l}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{flex:1,display:'flex',flexDirection:'column',gap:3}}>
+            {bars.map(({k,label,color,n,p})=>(
+              <div key={k} style={{display:'flex',alignItems:'center',gap:6}}>
+                <span style={{width:6,height:6,borderRadius:'50%',background:color,flexShrink:0}}/>
+                <div style={{width:54,fontSize:10,color,fontWeight:700,textTransform:'uppercase',flexShrink:0}}>{label}</div>
+                <div style={{flex:1,height:4,background:'#21262d',borderRadius:2,overflow:'hidden'}}>
+                  <div style={{height:'100%',borderRadius:2,width:`${p}%`,background:color}}/>
+                </div>
+                <div style={{width:22,textAlign:'right',fontSize:11,fontWeight:700,color:n>0?color:'#adbac7'}}>{n}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Tree / Gantt */}
+      <div style={{flex:1,overflow:'hidden'}}>
+        {view==='tree'?(
+          <div style={{height:'100%',overflowY:'auto',overflowX:'auto',padding:'8px 6px 12px'}}>
+            <div style={{minWidth:440}}>
+              <ReadOnlyNode node={tree} depth={0} expanded={expanded} onToggle={toggle}/>
+            </div>
+          </div>
+        ):(
+          <GanttChart tree={tree} onPatchNode={()=>{}}/>
+        )}
+      </div>
+      <div style={{padding:'5px 16px',borderTop:'1px solid #21262d',fontSize:10,color:'#adbac7',display:'flex',gap:14,flexShrink:0,alignItems:'center'}}>
+        <span>🔒 Read-only shared view</span>
+        <span style={{marginLeft:'auto'}}>Click "Open for editing" to work with this project</span>
+      </div>
+    </div>
+  );
+}
+
+
+
+// ─── MINIMAP ──────────────────────────────────────────────────────────────────
+function MinimapNode({node,depth,onJump,expanded}){
+  const isFolder=node.type==='folder';
+  const status=isFolder?computeStatus(node):(node.status||'new');
+  const col=S[status]?.color||'#8b949e';
+  const isOpen=depth===0||expanded.has(node.id);
+  return(
+    <div>
+      <div onClick={()=>onJump(node.id)}
+        style={{display:'flex',alignItems:'center',gap:3,paddingLeft:4+depth*8,paddingRight:4,height:14,cursor:'pointer',borderRadius:2,transition:'background .1s'}}
+        onMouseEnter={e=>e.currentTarget.style.background='rgba(255,255,255,.06)'}
+        onMouseLeave={e=>e.currentTarget.style.background='transparent'}
+        title={`${node.name}${!isFolder&&node.fileType?'.'+node.fileType:''}`}>
+        <span style={{width:5,height:5,borderRadius:isFolder?1:'50%',background:col,flexShrink:0,opacity:isFolder?.7:1}}/>
+        <span style={{fontSize:8,color:isFolder?'#cdd5e0':'#adbac7',fontWeight:isFolder?700:400,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',flex:1,lineHeight:1}}>
+          {node.name}{!isFolder&&node.fileType?'.'+node.fileType:''}
+        </span>
+      </div>
+      {isFolder&&isOpen&&(node.children||[]).map(ch=>(
+        <MinimapNode key={ch.id} node={ch} depth={depth+1} onJump={onJump} expanded={expanded}/>
+      ))}
+    </div>
+  );
+}
+
+function Minimap({tree,expanded,onJump,onClose}){
+  const st=useMemo(()=>gatherStats(tree),[tree]);
+  const pct=st.files>0?Math.round(st.completed/st.files*100):0;
+  const [search,setSearch]=useState('');
+  function filterTree(node,q){
+    if(!q)return node;
+    const lq=q.toLowerCase();
+    if(node.type==='file'){
+      return node.name.toLowerCase().includes(lq)||(node.fileType||'').toLowerCase().includes(lq)?node:null;
+    }
+    const filteredChildren=(node.children||[]).map(c=>filterTree(c,lq)).filter(Boolean);
+    if(filteredChildren.length||node.name.toLowerCase().includes(lq))return{...node,children:filteredChildren};
+    return null;
+  }
+  const displayTree=search?filterTree(tree,search):tree;
+  return(
+    <div style={{width:200,flexShrink:0,borderLeft:'1px solid #21262d',background:'#0a0e14',display:'flex',flexDirection:'column',height:'100%',position:'relative'}}>
+      {/* Header */}
+      <div style={{padding:'8px 8px 6px',borderBottom:'1px solid #21262d',flexShrink:0}}>
+        <div style={{display:'flex',alignItems:'center',gap:5,marginBottom:6}}>
+          <span style={{fontSize:10,color:'#adbac7',fontWeight:700,letterSpacing:'.05em',textTransform:'uppercase',flex:1}}>Map</span>
+          <span style={{fontSize:9,color:'#8b949e',fontVariantNumeric:'tabular-nums'}}>{pct}%</span>
+          <button onClick={onClose} title="Close minimap"
+            style={{width:18,height:18,borderRadius:999,border:'1px solid #21262d',background:'transparent',color:'#8b949e',fontSize:10,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,lineHeight:1}}>✕</button>
+        </div>
+        {/* Mini progress bar */}
+        <div style={{height:3,background:'#21262d',borderRadius:2,overflow:'hidden',marginBottom:6}}>
+          <div style={{height:'100%',borderRadius:2,width:`${pct}%`,background:pct===100?'#4ade80':'linear-gradient(90deg,#1f6feb,#388bfd)'}}/>
+        </div>
+        {/* Status dots */}
+        <div style={{display:'flex',gap:3,marginBottom:5,flexWrap:'wrap'}}>
+          {STATUS_ORDER.map(k=>{
+            const n=st[k]||0;if(!n)return null;
+            const c=S[k];
+            return(<span key={k} title={`${c.label}: ${n}`}
+              style={{fontSize:8,color:c.color,background:c.bg,border:`1px solid ${c.border}`,borderRadius:999,padding:'0 5px',fontWeight:700}}>{n}</span>);
+          })}
+        </div>
+        {/* Search */}
+        <input value={search} onChange={e=>setSearch(e.target.value)}
+          placeholder="Filter…"
+          style={{width:'100%',background:'#161b22',border:'1px solid #30363d',color:'#cdd5e0',fontFamily:'inherit',fontSize:9,borderRadius:999,padding:'3px 8px',outline:'none',colorScheme:'dark'}}/>
+      </div>
+      {/* Tree */}
+      <div style={{flex:1,overflowY:'auto',overflowX:'hidden',padding:'4px 2px'}}>
+        {displayTree
+          ?<MinimapNode node={displayTree} depth={0} onJump={onJump} expanded={expanded}/>
+          :<div style={{fontSize:9,color:'#8b949e',textAlign:'center',padding:'12px 8px',fontStyle:'italic'}}>No matches</div>
+        }
+      </div>
+      {/* Footer */}
+      <div style={{padding:'5px 8px',borderTop:'1px solid #21262d',fontSize:8,color:'#8b949e',flexShrink:0,textAlign:'center',letterSpacing:'.04em'}}>
+        click node to scroll
+      </div>
+    </div>
+  );
+}
+
+// ─── SHORTCUTS MODAL ──────────────────────────────────────────────────────────
+function ShortcutsModal({onClose}){
+  const groups=[
+    {label:'Navigation',items:[
+      ['↑ / ↓','Move focus between nodes'],
+      ['→ / ←','Expand / collapse folder'],
+      ['E','Expand all folders'],
+      ['M','Toggle minimap panel'],
+      ['Escape','Clear focus & selection'],
+    ]},
+    {label:'Adding (when a node is focused)',items:[
+      ['A','Open add form in focused folder'],
+      ['F','Add file to focused folder'],
+      ['S','Add section/folder to focused folder'],
+      ['⚡ Rapid mode','Toggle in add form — Enter adds & resets instantly'],
+    ]},
+    {label:'Editing',items:[
+      ['Click name','Inline rename'],
+      ['Click .ext badge','Edit or clear extension'],
+      ['Click status badge','Cycle status'],
+      ['📝 button','Open notes panel'],
+    ]},
+    {label:'Global',items:[
+      ['Ctrl + S','Save project'],
+      ['Ctrl + Z','Undo'],
+      ['Ctrl + Y','Redo'],
+      ['?','This help screen'],
+    ]},
+  ];
+  return(
+    <div onClick={e=>{if(e.target===e.currentTarget)onClose();}}
+      style={{position:'fixed',inset:0,background:'rgba(0,0,0,.85)',display:'flex',alignItems:'center',justifyContent:'center',zIndex:300,padding:20}}>
+      <div className="fadein" style={{background:'#0d1117',border:'1px solid #388bfd33',borderRadius:12,width:'min(560px,96vw)',maxHeight:'85vh',overflow:'auto',boxShadow:'0 32px 80px rgba(0,0,0,.9)'}}>
+        <div style={{display:'flex',alignItems:'center',padding:'16px 20px',borderBottom:'1px solid #21262d',position:'sticky',top:0,background:'#0d1117',zIndex:1}}>
+          <div style={{fontSize:15,fontWeight:800,color:'#f0f6fc'}}>⌨️ Keyboard Shortcuts</div>
+          <button onClick={onClose} style={{marginLeft:'auto',width:26,height:26,borderRadius:999,border:'1px solid #30363d',background:'transparent',color:'#8b949e',fontSize:14,cursor:'pointer',fontFamily:'inherit',display:'flex',alignItems:'center',justifyContent:'center'}}>✕</button>
+        </div>
+        <div style={{padding:'14px 20px',display:'flex',flexDirection:'column',gap:16}}>
+          {groups.map(g=>(
+            <div key={g.label}>
+              <div style={{fontSize:10,color:'#adbac7',letterSpacing:'.08em',textTransform:'uppercase',fontWeight:700,marginBottom:8,paddingBottom:4,borderBottom:'1px solid #21262d'}}>{g.label}</div>
+              <div style={{display:'flex',flexDirection:'column',gap:5}}>
+                {g.items.map(([key,desc])=>(
+                  <div key={key} style={{display:'flex',alignItems:'center',gap:12}}>
+                    <div style={{minWidth:140,display:'flex',gap:4,flexWrap:'wrap'}}>
+                      {key.split(' + ').map((k,i)=>(
+                        <React.Fragment key={i}>
+                          {i>0&&<span style={{color:'#8b949e',fontSize:10}}>+</span>}
+                          <kbd style={{display:'inline-block',padding:'2px 8px',borderRadius:5,background:'#161b22',border:'1px solid #30363d',borderBottom:'2px solid #21262d',fontSize:10,fontWeight:700,color:'#adbac7',fontFamily:'inherit',letterSpacing:'.04em'}}>{k}</kbd>
+                        </React.Fragment>
+                      ))}
+                    </div>
+                    <span style={{fontSize:11,color:'#8b949e'}}>{desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{padding:'10px 20px',borderTop:'1px solid #21262d',fontSize:10,color:'#8b949e',textAlign:'center'}}>Press <kbd style={{padding:'1px 6px',borderRadius:4,background:'#161b22',border:'1px solid #30363d',fontSize:9}}>?</kbd> anytime to reopen this</div>
+      </div>
+    </div>
+  );
+}
+
+// ─── APP ──────────────────────────────────────────────────────────────────────
+function App(){
+  const [projects,setProjects]   = useState([]);
+  const [activeId,setActiveId]   = useState(null);
+  const [showWelcome,setShowWelcome] = useState(true);
+  const [lastProjects,setLastProjects] = useState([]);
+  const [expanded,setExpanded]   = useState(new Set());
+  const [addingTo,setAddingTo]   = useState(null);
+  const [addingKind,setAddingKind] = useState('file');
+  const [selected,setSelected]   = useState(new Set());
+  const [searchQ,setSearchQ]     = useState('');
+  const [tagFilter,setTagFilter] = useState(null);
+  const [dragState,setDragState] = useState(null);
+  const [view,setView]           = useState('tree');
+  const [showExport,setShowExport] = useState(false);
+  const [focusedId,setFocusedId] = useState(null);
+  const [notesOpen,setNotesOpen] = useState(new Set());
+  const [tourStep,setTourStep]   = useState(null);
+  const [showShare,setShowShare] = useState(false);
+  const [showShortcuts,setShowShortcuts] = useState(false);
+  const [showMinimap,setShowMinimap]   = useState(false);
+  const [sharedData,setSharedData] = useState(null); // set if URL has #share=
+  const importRef = useRef();
+  const treeRef   = useRef();
+
+  // ── Derived active project ─────────────────────────────────────────────────
+  const active        = projects.find(p=>p.id===activeId);
+  const tree          = active?.tree||null;
+  const projectName   = active?.projectName||'';
+  const isDirty       = active?.isDirty||false;
+  const fileHandle    = active?.fileHandle||null;
+  const fileName      = active?.fileName||null;
+  const projectType   = active?.projectType||'software';
+  const PT            = PROJ_TYPES[projectType]||PROJ_TYPES.software;
+  const historyStack  = active?.historyStack||[];
+  const historyIdx    = active?.historyIdx??-1;
+  const pHistory      = active?.pHistory||[];
+
+  // ── Load localStorage ──────────────────────────────────────────────────────
+  useEffect(()=>{
+    try{
+      const raw=localStorage.getItem(LS_KEY);
+      if(!raw)return;
+      const data=JSON.parse(raw);
+      if(data.lastProjects?.length)setLastProjects(data.lastProjects);
+      if(data.projects?.length){
+        const restored=data.projects.map(p=>({...p,fileHandle:null,isDirty:false,
+          historyStack:p.tree?[p.tree]:[],historyIdx:0}));
+        setProjects(restored);
+        const aid=data.activeId||restored[0].id;
+        setActiveId(aid);
+        const ap=restored.find(p=>p.id===aid);
+        if(ap?.tree)setExpanded(new Set([ap.tree.id]));
+        setShowWelcome(false);
+      }
+    }catch(e){}
+    // Tour
+    if(!localStorage.getItem(TOUR_KEY)&&!localStorage.getItem(LS_KEY)){
+      // Will start after first project created
+    }
+    // Check for shared link
+    const hash=window.location.hash;
+    if(hash.startsWith('#share=')){
+      const encoded=hash.slice(7);
+      decompressProject(encoded)
+        .then(data=>{setSharedData(data);setShowWelcome(false);})
+        .catch(()=>alert('Could not decode shared link. It may be corrupted or truncated.'));
+    }
+  },[]);
+
+  // ── Auto-save to localStorage ──────────────────────────────────────────────
+  useEffect(()=>{
+    if(projects.length===0)return;
+    const toSave={
+      activeId,
+      projects:projects.map(p=>({id:p.id,projectName:p.projectName,tree:p.tree,savedAt:new Date().toISOString(),_stats:p.tree?gatherStats(p.tree):{},pHistory:p.pHistory||[]})),
+      lastProjects:projects.map(p=>({id:p.id,projectName:p.projectName,savedAt:new Date().toISOString(),_stats:p.tree?gatherStats(p.tree):{}})),
+    };
+    try{localStorage.setItem(LS_KEY,JSON.stringify(toSave));}catch(e){}
+  },[projects,activeId]);
+
+  // ── Computed ───────────────────────────────────────────────────────────────
+  const st      = useMemo(()=>tree?gatherStats(tree):null,[tree]);
+  const allTags = useMemo(()=>tree?gatherAllTags(tree):new Set(),[tree]);
+  const canUndo = historyIdx>0;
+  const canRedo = historyIdx<historyStack.length-1;
+  const undoCount = historyIdx;
+  const redoCount = historyStack.length-1-historyIdx;
+
+  // ── Helpers ────────────────────────────────────────────────────────────────
+  const resetUIState=(newTree)=>{
+    setAddingTo(null);setSelected(new Set());setSearchQ('');
+    setTagFilter(null);setDragState(null);setView('tree');setFocusedId(null);setNotesOpen(new Set());
+    if(newTree)setExpanded(new Set([newTree.id]));
+  };
+
+  const openProject=(projData,fh=null,fName=null)=>{
+    const exists=projects.find(p=>p.projectName===projData.projectName&&!fh);
+    if(exists){setActiveId(exists.id);resetUIState(exists.tree);setShowWelcome(false);return;}
+    const newProj={id:uid(),projectName:projData.projectName,tree:projData.tree,projectType:projData.projectType||'software',fileHandle:fh,fileName:fName,isDirty:false,
+      historyStack:[projData.tree],historyIdx:0,pHistory:projData.pHistory||[]};
+    setProjects(p=>[...p,newProj]);
+    setActiveId(newProj.id);
+    resetUIState(projData.tree);
+    setShowWelcome(false);
+  };
+
+  const switchProject=(id)=>{if(id===activeId)return;setActiveId(id);const p=projects.find(pr=>pr.id===id);resetUIState(p?.tree);};
+  const closeProject=(id)=>{
+    const p=projects.find(pr=>pr.id===id);
+    if(p?.isDirty&&!window.confirm(`Close "${p.projectName}"? Unsaved changes will be lost.`))return;
+    const remaining=projects.filter(pr=>pr.id!==id);
+    setProjects(remaining);
+    if(activeId===id){if(remaining.length>0){const next=remaining[remaining.length-1];setActiveId(next.id);resetUIState(next.tree);}else{setActiveId(null);setShowWelcome(true);}}
+  };
+
+  // ── Tree mutations (with history) ──────────────────────────────────────────
+  const applyTree=(newTree)=>{
+    const today=todayStr();
+    setProjects(p=>p.map(pr=>{
+      if(pr.id!==activeId)return pr;
+      const st=gatherStats(newTree);
+      const pct=st.files>0?Math.round(st.completed/st.files*100):0;
+      const prevHistory=pr.historyStack||[];
+      const prevIdx=pr.historyIdx??0;
+      const newStack=[...prevHistory.slice(0,prevIdx+1),newTree].slice(-MAX_HISTORY);
+      // Progress history: one entry per day
+      const ph=[...(pr.pHistory||[])];
+      const last=ph[ph.length-1];
+      if(!last||last.date!==today)ph.push({date:today,pct});
+      else ph[ph.length-1]={date:today,pct};
+      return{...pr,tree:newTree,isDirty:true,historyStack:newStack,historyIdx:newStack.length-1,pHistory:ph};
+    }));
+  };
+
+  const setTree=(fn)=>{
+    if(!active)return;
+    const newTree=typeof fn==='function'?fn(active.tree):fn;
+    applyTree(newTree);
+  };
+
+  const jumpToNode=(id)=>{
+    // Expand all ancestors so the node is visible
+    function getAncestors(node,targetId,path=[]){
+      if(node.id===targetId)return path;
+      for(const ch of(node.children||[])){
+        const r=getAncestors(ch,targetId,[...path,node.id]);
+        if(r)return r;
+      }
+      return null;
+    }
+    const ancestors=getAncestors(tree,id,[]);
+    if(ancestors){
+      setExpanded(s=>{const n=new Set(s);ancestors.forEach(a=>n.add(a));return n;});
+      setTimeout(()=>{
+        const el=document.querySelector(`[data-nodeid="${id}"]`);
+        if(el){el.scrollIntoView({behavior:'smooth',block:'center'});setFocusedId(id);}
+      },60);
+    }
+  };
+  const undo=()=>{
+    if(!canUndo)return;
+    setProjects(p=>p.map(pr=>{
+      if(pr.id!==activeId)return pr;
+      const newIdx=pr.historyIdx-1;
+      return{...pr,tree:pr.historyStack[newIdx],historyIdx:newIdx,isDirty:true};
+    }));
+  };
+  const redo=()=>{
+    if(!canRedo)return;
+    setProjects(p=>p.map(pr=>{
+      if(pr.id!==activeId)return pr;
+      const newIdx=pr.historyIdx+1;
+      return{...pr,tree:pr.historyStack[newIdx],historyIdx:newIdx,isDirty:true};
+    }));
+  };
+
+  // ── File ops ───────────────────────────────────────────────────────────────
+  const writeToHandle=async(fh,data)=>{const w=await fh.createWritable();await w.write(data);await w.close();};
+  const buildSaveData=()=>JSON.stringify({projectName,tree,pHistory},null,2);
+
+  const handleSave=useCallback(async()=>{
+    if(!tree)return;
+    if(fileHandle){
+      try{await writeToHandle(fileHandle,buildSaveData());setProjects(p=>p.map(pr=>pr.id===activeId?{...pr,isDirty:false}:pr));}
+      catch(e){alert('Could not save: '+e.message);}
+    }else{handleSaveAs();}
+  },[tree,projectName,fileHandle,activeId,pHistory]);
+
+  const handleSaveAs=useCallback(async()=>{
+    if(!tree)return;
+    const data=buildSaveData();
+    if(window.showSaveFilePicker){
+      try{
+        const fh=await window.showSaveFilePicker({suggestedName:`${projectName.replace(/[^a-z0-9]/gi,'_')}_project.json`,types:[{description:'JSON Project',accept:{'application/json':['.json']}}],startIn:'documents'});
+        await writeToHandle(fh,data);
+        setProjects(p=>p.map(pr=>pr.id===activeId?{...pr,fileHandle:fh,fileName:fh.name,isDirty:false}:pr));
+      }catch(e){if(e.name!=='AbortError')alert('Save failed: '+e.message);}
+    }else{
+      const blob=new Blob([data],{type:'application/json'});const a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);a.download=`${projectName.replace(/[^a-z0-9]/gi,'_')}_project.json`;a.click();
+      setProjects(p=>p.map(pr=>pr.id===activeId?{...pr,isDirty:false}:pr));
+    }
+  },[tree,projectName,activeId,pHistory]);
+
+  const handleLoad=useCallback(async()=>{
+    if(window.showOpenFilePicker){
+      try{
+        const[fh]=await window.showOpenFilePicker({types:[{description:'JSON Project',accept:{'application/json':['.json']}}]});
+        const file=await fh.getFile();const text=await file.text();const d=JSON.parse(text);
+        if(d.tree&&d.projectName)openProject(d,fh,fh.name);
+        else alert('Invalid project file.');
+      }catch(e){if(e.name!=='AbortError')alert('Could not load: '+e.message);}
+    }else{importRef.current?.click();}
+  },[projects]);
+
+  const onFileFallback=e=>{
+    const f=e.target.files[0];if(!f)return;
+    const r=new FileReader();
+    r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(d.tree&&d.projectName)openProject(d,null,f.name);else alert('Invalid file.');}catch{alert('Could not parse JSON.');}};
+    r.readAsText(f);e.target.value='';
+  };
+
+  // ── Keyboard shortcuts ─────────────────────────────────────────────────────
+  useEffect(()=>{
+    const h=e=>{
+      const tag=e.target.tagName;
+      const inInput=tag==='INPUT'||tag==='TEXTAREA';
+      if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();handleSave();return;}
+      if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();undo();return;}
+      if((e.ctrlKey||e.metaKey)&&(e.key==='y'||(e.shiftKey&&e.key==='z'))){e.preventDefault();redo();return;}
+      if(inInput||!tree)return;
+      // Tree keyboard navigation
+      const visible=flattenVisible({...tree,_isRoot:true},expanded);
+      if(e.key==='ArrowDown'){
+        e.preventDefault();
+        const idx=focusedId?visible.indexOf(focusedId):-1;
+        const next=visible[Math.min(idx+1,visible.length-1)];
+        setFocusedId(next);
+        document.querySelector(`[data-nodeid="${next}"]`)?.scrollIntoView({block:'nearest'});
+      }
+      if(e.key==='ArrowUp'){
+        e.preventDefault();
+        const idx=focusedId?visible.indexOf(focusedId):visible.length;
+        const prev=visible[Math.max(idx-1,0)];
+        setFocusedId(prev);
+        document.querySelector(`[data-nodeid="${prev}"]`)?.scrollIntoView({block:'nearest'});
+      }
+      if(e.key==='ArrowRight'&&focusedId){setExpanded(s=>{const n=new Set(s);n.add(focusedId);return n;});}
+      if(e.key==='ArrowLeft'&&focusedId){setExpanded(s=>{const n=new Set(s);n.delete(focusedId);return n;});}
+      if(e.key==='e'||e.key==='E'){expandAll();}
+      if(e.key==='m'||e.key==='M'){setShowMinimap(m=>!m);return;}
+      if(e.key==='Escape'){
+        if(addingTo){setAddingTo(null);return;}
+        setFocusedId(null);setSelected(new Set());
+      }
+      if(e.key==='?'){setShowShortcuts(s=>!s);return;}
+      // Add shortcuts — work on focused node
+      if(focusedId){
+        const node=findNode(tree,focusedId);
+        if(!node)return;
+        // Target folder: if focused is a file, add to its parent; if folder, add to it
+        const targetId=node.type==='folder'?node.id:findParent(tree,focusedId)?.id;
+        if(!targetId)return;
+        if(e.key==='a'||e.key==='A'){
+          e.preventDefault();
+          setAddingKind('file');
+          setAddingTo(targetId);
+          setExpanded(s=>{const n=new Set(s);n.add(targetId);return n;});
+          setTimeout(()=>document.querySelector(`[data-nodeid="${targetId}"] input`)?.focus(),80);
+        }
+        if(e.key==='f'||e.key==='F'){
+          e.preventDefault();
+          setAddingKind('file');
+          setAddingTo(targetId);
+          setExpanded(s=>{const n=new Set(s);n.add(targetId);return n;});
+        }
+        if(e.key==='s'||e.key==='S'){
+          e.preventDefault();
+          setAddingKind('folder');
+          setAddingTo(targetId);
+          setExpanded(s=>{const n=new Set(s);n.add(targetId);return n;});
+        }
+      }
+    };
+    document.addEventListener('keydown',h);
+    return()=>document.removeEventListener('keydown',h);
+  },[handleSave,undo,redo,tree,expanded,focusedId,addingTo,addingKind]);
+
+  // ── Shared view ───────────────────────────────────────────────────────────────
+  if(sharedData)return(
+    <SharedView data={sharedData} onEdit={()=>{
+      openProject(sharedData);
+      setSharedData(null);
+      // Clear hash from URL without reload
+      history.replaceState(null,'',window.location.pathname+window.location.search);
+    }}/>
+  );
+
+  // ── Welcome screen ─────────────────────────────────────────────────────────
+  if(showWelcome||projects.length===0)return(
+    <>
+      <input type="file" accept=".json" ref={importRef} onChange={onFileFallback} style={{display:'none'}}/>
+      <Welcome lastProjects={lastProjects}
+        onNew={(n,d,pt)=>{
+          const root={id:uid(),name:n,desc:d,type:'folder',children:[],tags:[]};
+          openProject({projectName:n,tree:root,projectType:pt||'software'});
+          if(!localStorage.getItem(TOUR_KEY)){setTourStep(0);}
+        }}
+        onLoad={handleLoad}
+        onResume={p=>openProject(p)}
+        onTemplate={t=>{
+          const tr=makeTemplate(t);tr.name=t.name.toLowerCase().replace(/\s+/g,'-');
+          openProject({projectName:t.name,tree:tr,projectType:'software'});
+          if(!localStorage.getItem(TOUR_KEY)){setTourStep(0);}
+        }}
+      />
+      {tourStep!==null&&(
+        <TourOverlay step={tourStep}
+          onNext={()=>{
+            if(tourStep>=TOUR_STEPS.length-1){setTourStep(null);localStorage.setItem(TOUR_KEY,'1');}
+            else setTourStep(s=>s+1);
+          }}
+          onSkip={()=>{setTourStep(null);localStorage.setItem(TOUR_KEY,'1');}}
+        />
+      )}
+    </>
+  );
+
+  // ── Tree ops ───────────────────────────────────────────────────────────────
+  const toggle=id=>setExpanded(p=>{const s=new Set(p);s.has(id)?s.delete(id):s.add(id);return s;});
+  const cycleStatus=(id,cur)=>{const next=STATUS_ORDER[(STATUS_ORDER.indexOf(cur)+1)%STATUS_ORDER.length];setTree(p=>patchNode(p,id,{status:next}));};
+  const patch=(id,ch)=>setTree(p=>patchNode(p,id,ch));
+  const del=id=>{setTree(p=>removeNode(p,id));setSelected(s=>{const n=new Set(s);n.delete(id);return n;});if(focusedId===id)setFocusedId(null);};
+  const add=(parentId,{kind,name,ext,desc,startDate,endDate})=>{
+    const item=kind==='folder'?{id:uid(),name,desc,type:'folder',children:[],tags:[]}:{id:uid(),name,desc,type:'file',fileType:ext||'',status:'new',startDate:startDate||null,endDate:endDate||null,tags:[],notes:''};
+    setTree(p=>insertNode(p,parentId,item));
+    setExpanded(p=>new Set([...p,parentId]));setAddingTo(null);
+  };
+  const handleSelect=(id,multi)=>setSelected(prev=>{if(multi){const n=new Set(prev);n.has(id)?n.delete(id):n.add(id);return n;}if(prev.size===1&&prev.has(id))return new Set();return new Set([id]);});
+  const bulkStatus=status=>{setTree(p=>{let t=p;selected.forEach(id=>{t=patchNode(t,id,{status});});return t;});};
+  const bulkDelete=()=>{if(window.confirm(`Delete ${selected.size} selected items?`)){setTree(p=>{let t=p;selected.forEach(id=>{t=removeNode(t,id);});return t;});setSelected(new Set());}};
+  const expandAll=()=>setExpanded(collectAllFolderIds(tree));
+  const collapseAll=()=>setExpanded(new Set([tree.id]));
+  const handleDragStart=(e,id,parentId,idx)=>{e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',JSON.stringify({id,parentId,idx}));setDragState({draggingId:id,overId:null});};
+  const handleDragOver=(e,id)=>{e.preventDefault();e.dataTransfer.dropEffect='move';setDragState(d=>d?{...d,overId:id}:d);};
+  const handleDragEnd=()=>setDragState(null);
+  const handleDrop=(e,targetId,targetParentId,targetIdx)=>{e.preventDefault();try{const{id:srcId,parentId:srcParentId,idx:srcIdx}=JSON.parse(e.dataTransfer.getData('text/plain'));if(srcId===targetId||srcParentId!==targetParentId)return;setTree(p=>reorderNode(p,srcParentId,srcIdx,targetIdx));}catch(err){}setDragState(null);};
+  const toggleNotes=id=>setNotesOpen(s=>{const n=new Set(s);n.has(id)?n.delete(id):n.add(id);return n;});
+
+  return(
+    <div style={{display:'flex',flexDirection:'column',height:'100vh',background:'#0d1117',color:'#cdd5e0',overflow:'hidden'}}>
+      <input type="file" accept=".json" ref={importRef} onChange={onFileFallback} style={{display:'none'}}/>
+      {showExport&&<ExportModal tree={tree} projectName={projectName} onClose={()=>setShowExport(false)}/>}
+      {showShortcuts&&<ShortcutsModal onClose={()=>setShowShortcuts(false)}/>}
+      {showShare&&<ShareModal tree={tree} projectName={projectName} onClose={()=>setShowShare(false)}/>}
+      {tourStep!==null&&(
+        <TourOverlay step={tourStep}
+          onNext={()=>{if(tourStep>=TOUR_STEPS.length-1){setTourStep(null);localStorage.setItem(TOUR_KEY,'1');}else setTourStep(s=>s+1);}}
+          onSkip={()=>{setTourStep(null);localStorage.setItem(TOUR_KEY,'1');}}
+        />
+      )}
+      <ProjectTabs projects={projects} activeId={activeId} onSwitch={switchProject} onClose={closeProject}
+        onNewProject={()=>setShowWelcome(true)} onLoadProject={handleLoad}
+        onShowShortcuts={()=>setShowShortcuts(true)}
+        onStartTour={()=>setTourStep(0)}/>
+      <Dashboard
+        st={st} name={projectName} isDirty={isDirty} fileName={fileName} PT={PT}
+        view={view} setView={setView} treeView={view==='tree'}
+        onSave={handleSave} onSaveAs={handleSaveAs}
+        onExportTree={()=>setShowExport(true)}
+        onShare={()=>setShowShare(true)}
+        onExpandAll={expandAll} onCollapseAll={collapseAll}
+        searchQ={searchQ} setSearchQ={setSearchQ}
+        tagFilter={tagFilter} setTagFilter={setTagFilter}
+        allTags={allTags}
+        selectedCount={selected.size}
+        onBulkStatus={bulkStatus} onBulkDelete={bulkDelete}
+        canUndo={canUndo} canRedo={canRedo}
+        onUndo={undo} onRedo={redo}
+        undoCount={undoCount} redoCount={redoCount}
+        history={pHistory}
+        onToggleMinimap={()=>setShowMinimap(m=>!m)}
+        showMinimap={showMinimap}
+      />
+      <div style={{flex:1,overflow:'hidden',position:'relative'}}>
+        {view==='tree'?(
+          <div style={{display:'flex',height:'100%',overflow:'hidden'}}>
+            <div ref={treeRef} className="tree-scroll"
+              style={{flex:1,overflowY:'auto',overflowX:'auto',padding:'8px 6px 12px',outline:'none'}}
+              tabIndex={0}
+              onClick={e=>{if(!e.target.closest('.node-row'))setSelected(new Set());}}>
+              <div style={{minWidth:440}}>
+                <TreeNode node={tree} depth={0} isRoot
+                  expanded={expanded} onToggle={toggle} onDelete={del}
+                  onCycleStatus={cycleStatus} onPatch={patch}
+                  addingTo={addingTo} setAddingTo={setAddingTo} onAdd={add}
+                  selected={selected} onSelect={handleSelect}
+                  searchQ={searchQ} tagFilter={tagFilter}
+                  dragState={dragState}
+                  onDragStart={handleDragStart} onDragOver={handleDragOver}
+                  onDragEnd={handleDragEnd} onDrop={handleDrop}
+                  parentId={null} siblingIndex={0}
+                  focusedId={focusedId} notesOpen={notesOpen} onToggleNotes={toggleNotes}
+                  PT={PT} addingKind={addingKind} setAddingKind={setAddingKind}/>
+              </div>
+            </div>
+            {showMinimap&&tree&&(
+              <Minimap tree={tree} expanded={expanded}
+                onJump={jumpToNode}
+                onClose={()=>setShowMinimap(false)}/>
+            )}
+          </div>
+        ):(
+          <GanttChart tree={tree} onPatchNode={patch}/>
+        )}
+      </div>
+      <div style={{padding:'5px 16px',borderTop:'1px solid #21262d',fontSize:10,color:'#adbac7',display:'flex',gap:14,flexWrap:'wrap',letterSpacing:'.04em',flexShrink:0,alignItems:'center'}}>
+        <span style={{color:'#8b949e'}}>↑↓ navigate · A/F add · E expand</span>
+        <span>⋮⋮ drag</span>
+        <span>☐ multi-select</span>
+        <span>📝 notes</span>
+        <span style={{marginLeft:'auto',color:'#adbac7',cursor:'pointer'}} onClick={()=>setShowShortcuts(true)}>⌨️ shortcuts · Ctrl+Z · Ctrl+S</span>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
