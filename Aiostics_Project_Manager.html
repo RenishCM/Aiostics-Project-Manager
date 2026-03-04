@@ -1361,7 +1361,7 @@ function Welcome({onNew,onLoad,onResume,lastProjects,onTemplate}){
               <div style={lS}>Project Name *</div>
               <input ref={nameRef} value={name} onChange={e=>setName(e.target.value)}
                 onKeyDown={e=>e.key==='Enter'&&valid&&onNew(name.trim(),desc.trim())}
-                placeholder="my-awesome-project"
+                placeholder="Project Name"
                 style={{...fS,border:`1px solid ${valid?'#388bfd':'#30363d'}`,boxShadow:valid?'0 0 0 3px rgba(56,139,253,.12)':'none'}}/>
             </div>
             <div style={{marginBottom:14}}>
